@@ -1,0 +1,3 @@
+/lyceum/sr1g19/GFSM/build/CMakeFiles/GFSM.dir
+/lyceum/sr1g19/GFSM/build/CMakeFiles/edit_cache.dir
+/lyceum/sr1g19/GFSM/build/CMakeFiles/rebuild_cache.dir

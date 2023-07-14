@@ -1,0 +1,1033 @@
+The system is: Linux - 3.10.0-1127.el7.x86_64 - x86_64
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /local/software/gcc/8.5.0/bin/g++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/lyceum/sr1g19/GFSM/build/CMakeFiles/3.22.0/CompilerIdCXX/a.out"
+
+Checking whether the CUDA compiler is NVIDIA using "" matched "nvcc: NVIDIA \(R\) Cuda compiler driver":
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2022 NVIDIA Corporation
+Built on Tue_May__3_18:49:52_PDT_2022
+Cuda compilation tools, release 11.7, V11.7.64
+Build cuda_11.7.r11.7/compiler.31294372_0
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" succeeded.
+Compiler: /local/software/cuda/11.7/bin/nvcc 
+Build flags: 
+Id flags: --keep;--keep-dir;tmp;-gencode=arch=compute_52,code=sm_52;-gencode=arch=compute_60,code=sm_60;-gencode=arch=compute_61,code=sm_61;-gencode=arch=compute_75,code=sm_75;-gencode=arch=compute_86,code=sm_86 -v
+
+The output was:
+0
+#$ _NVVM_BRANCH_=nvvm
+#$ _SPACE_= 
+#$ _CUDART_=cudart
+#$ _HERE_=/local/software/cuda/11.7/bin
+#$ _THERE_=/local/software/cuda/11.7/bin
+#$ _TARGET_SIZE_=
+#$ _TARGET_DIR_=
+#$ _TARGET_DIR_=targets/x86_64-linux
+#$ TOP=/local/software/cuda/11.7/bin/..
+#$ NVVMIR_LIBRARY_DIR=/local/software/cuda/11.7/bin/../nvvm/libdevice
+#$ LD_LIBRARY_PATH=/local/software/cuda/11.7/bin/../lib:/local/software/gcc/8.5.0/libexec/gcc/x86_64-pc-linux-gnu/8.5.0:/local/software/gcc/8.5.0/lib64:/local/software/gcc/8.5.0/lib:/local/software/cuda/11.7/extras/CUPTI/lib64:/local/software/cuda/11.7/lib64:/local/software/slurm/default/lib::
+#$ PATH=/local/software/cuda/11.7/bin/../nvvm/bin:/local/software/cuda/11.7/bin:/local/software/gcc/8.5.0/bin:/local/software/gnumake/4.2/bin:/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/bin:/local/software/cuda/11.7/bin:/local/software/slurm/bin:/local/software/slurm/default/bin:/local/software/slurm/default/sbin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/lpp/mmfs/bin:/opt/ibutils/bin:/lyceum/sr1g19/bin:/local/bin:.
+#$ INCLUDES="-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"  
+#$ LIBRARIES=  "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib"
+#$ CUDAFE_FLAGS=
+#$ PTXAS_FLAGS=
+#$ rm tmp/a_dlink.reg.c
+#$ gcc -D__CUDA_ARCH__=860 -D__CUDA_ARCH_LIST__=520,600,610,750,860 -E -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -D__CUDACC__ -D__NVCC__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.compute_86.cpp1.ii" 
+#$ cicc --c++14 --gnu_version=80500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/3.22.0/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed   -arch compute_86 -m64 --no-version-ident -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 --include_file_name "CMakeCUDACompilerId.fatbin.c" -tused --gen_module_id_file --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --gen_c_file_name "tmp/CMakeCUDACompilerId.compute_86.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.compute_86.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.compute_86.cudafe1.gpu"  "tmp/CMakeCUDACompilerId.compute_86.cpp1.ii" -o "tmp/CMakeCUDACompilerId.compute_86.ptx"
+#$ gcc -D__CUDA_ARCH__=520 -D__CUDA_ARCH_LIST__=520,600,610,750,860 -E -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -D__CUDACC__ -D__NVCC__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.compute_52.cpp1.ii" 
+#$ cicc --c++14 --gnu_version=80500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/3.22.0/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed   -arch compute_52 -m64 --no-version-ident -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 --include_file_name "CMakeCUDACompilerId.fatbin.c" -tused --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --gen_c_file_name "tmp/CMakeCUDACompilerId.compute_52.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.compute_52.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.compute_52.cudafe1.gpu"  "tmp/CMakeCUDACompilerId.compute_52.cpp1.ii" -o "tmp/CMakeCUDACompilerId.compute_52.ptx"
+#$ ptxas -arch=sm_52 -m64  "tmp/CMakeCUDACompilerId.compute_52.ptx"  -o "tmp/CMakeCUDACompilerId.compute_52.cubin" 
+#$ gcc -D__CUDA_ARCH__=600 -D__CUDA_ARCH_LIST__=520,600,610,750,860 -E -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -D__CUDACC__ -D__NVCC__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.compute_60.cpp1.ii" 
+#$ cicc --c++14 --gnu_version=80500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/3.22.0/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed   -arch compute_60 -m64 --no-version-ident -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 --include_file_name "CMakeCUDACompilerId.fatbin.c" -tused --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --gen_c_file_name "tmp/CMakeCUDACompilerId.compute_60.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.compute_60.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.compute_60.cudafe1.gpu"  "tmp/CMakeCUDACompilerId.compute_60.cpp1.ii" -o "tmp/CMakeCUDACompilerId.compute_60.ptx"
+#$ ptxas -arch=sm_60 -m64  "tmp/CMakeCUDACompilerId.compute_60.ptx"  -o "tmp/CMakeCUDACompilerId.compute_60.cubin" 
+#$ gcc -D__CUDA_ARCH__=610 -D__CUDA_ARCH_LIST__=520,600,610,750,860 -E -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -D__CUDACC__ -D__NVCC__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.compute_61.cpp1.ii" 
+#$ cicc --c++14 --gnu_version=80500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/3.22.0/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed   -arch compute_61 -m64 --no-version-ident -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 --include_file_name "CMakeCUDACompilerId.fatbin.c" -tused --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --gen_c_file_name "tmp/CMakeCUDACompilerId.compute_61.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.compute_61.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.compute_61.cudafe1.gpu"  "tmp/CMakeCUDACompilerId.compute_61.cpp1.ii" -o "tmp/CMakeCUDACompilerId.compute_61.ptx"
+#$ ptxas -arch=sm_61 -m64  "tmp/CMakeCUDACompilerId.compute_61.ptx"  -o "tmp/CMakeCUDACompilerId.compute_61.cubin" 
+#$ gcc -D__CUDA_ARCH__=750 -D__CUDA_ARCH_LIST__=520,600,610,750,860 -E -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -D__CUDACC__ -D__NVCC__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.compute_75.cpp1.ii" 
+#$ cicc --c++14 --gnu_version=80500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/3.22.0/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed   -arch compute_75 -m64 --no-version-ident -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 --include_file_name "CMakeCUDACompilerId.fatbin.c" -tused --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --gen_c_file_name "tmp/CMakeCUDACompilerId.compute_75.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.compute_75.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.compute_75.cudafe1.gpu"  "tmp/CMakeCUDACompilerId.compute_75.cpp1.ii" -o "tmp/CMakeCUDACompilerId.compute_75.ptx"
+#$ ptxas -arch=sm_75 -m64  "tmp/CMakeCUDACompilerId.compute_75.ptx"  -o "tmp/CMakeCUDACompilerId.compute_75.cubin" 
+#$ ptxas -arch=sm_86 -m64  "tmp/CMakeCUDACompilerId.compute_86.ptx"  -o "tmp/CMakeCUDACompilerId.compute_86.cubin" 
+#$ fatbinary --create="tmp/CMakeCUDACompilerId.fatbin" -64 --cicc-cmdline="-ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 " "--image3=kind=elf,sm=52,file=tmp/CMakeCUDACompilerId.compute_52.cubin" "--image3=kind=elf,sm=60,file=tmp/CMakeCUDACompilerId.compute_60.cubin" "--image3=kind=elf,sm=61,file=tmp/CMakeCUDACompilerId.compute_61.cubin" "--image3=kind=elf,sm=75,file=tmp/CMakeCUDACompilerId.compute_75.cubin" "--image3=kind=elf,sm=86,file=tmp/CMakeCUDACompilerId.compute_86.cubin" --embedded-fatbin="tmp/CMakeCUDACompilerId.fatbin.c" 
+#$ gcc -D__CUDA_ARCH_LIST__=520,600,610,750,860 -E -x c++ -D__CUDACC__ -D__NVCC__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.cpp4.ii" 
+#$ cudafe++ --c++14 --gnu_version=80500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/3.22.0/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed  --m64 --parse_templates --gen_c_file_name "tmp/CMakeCUDACompilerId.compute_86.cudafe1.cpp" --stub_file_name "CMakeCUDACompilerId.compute_86.cudafe1.stub.c" --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" "tmp/CMakeCUDACompilerId.cpp4.ii" 
+#$ gcc -D__CUDA_ARCH__=860 -D__CUDA_ARCH_LIST__=520,600,610,750,860 -c -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.compute_86.cudafe1.cpp" -o "tmp/CMakeCUDACompilerId.o" 
+#$ nvlink -m64 --arch=sm_52 --register-link-binaries="tmp/a_dlink.reg.c"    "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 -report-arch "tmp/CMakeCUDACompilerId.o"  -lcudadevrt  -o "tmp/a_dlink.compute_52.cubin" --host-ccbin "gcc"
+#$ nvlink -m64 --arch=sm_60 --register-link-binaries="tmp/a_dlink.reg.c"    "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 -report-arch "tmp/CMakeCUDACompilerId.o"  -lcudadevrt  -o "tmp/a_dlink.compute_60.cubin" --host-ccbin "gcc"
+#$ nvlink -m64 --arch=sm_61 --register-link-binaries="tmp/a_dlink.reg.c"    "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 -report-arch "tmp/CMakeCUDACompilerId.o"  -lcudadevrt  -o "tmp/a_dlink.compute_61.cubin" --host-ccbin "gcc"
+#$ nvlink -m64 --arch=sm_75 --register-link-binaries="tmp/a_dlink.reg.c"    "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 -report-arch "tmp/CMakeCUDACompilerId.o"  -lcudadevrt  -o "tmp/a_dlink.compute_75.cubin" --host-ccbin "gcc"
+#$ nvlink -m64 --arch=sm_86 --register-link-binaries="tmp/a_dlink.reg.c"    "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 -report-arch "tmp/CMakeCUDACompilerId.o"  -lcudadevrt  -o "tmp/a_dlink.compute_86.cubin" --host-ccbin "gcc"
+#$ fatbinary --create="tmp/a_dlink.fatbin" -64 --cicc-cmdline="-ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 " -link "--image3=kind=elf,sm=52,file=tmp/a_dlink.compute_52.cubin" "--image3=kind=elf,sm=60,file=tmp/a_dlink.compute_60.cubin" "--image3=kind=elf,sm=61,file=tmp/a_dlink.compute_61.cubin" "--image3=kind=elf,sm=75,file=tmp/a_dlink.compute_75.cubin" "--image3=kind=elf,sm=86,file=tmp/a_dlink.compute_86.cubin" --embedded-fatbin="tmp/a_dlink.fatbin.c" 
+#$ gcc -D__CUDA_ARCH_LIST__=520,600,610,750,860 -c -x c++ -DFATBINFILE="\"tmp/a_dlink.fatbin.c\"" -DREGISTERLINKBINARYFILE="\"tmp/a_dlink.reg.c\"" -I. -D__NV_EXTRA_INITIALIZATION= -D__NV_EXTRA_FINALIZATION= -D__CUDA_INCLUDE_COMPILER_INTERNAL_HEADERS__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -m64 "/local/software/cuda/11.7/bin/crt/link.stub" -o "tmp/a_dlink.o" 
+#$ g++ -D__CUDA_ARCH_LIST__=520,600,610,750,860 -m64 -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib"  -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group -o "a.out" 
+
+
+Compilation of the CUDA compiler identification source "CMakeCUDACompilerId.cu" produced "a.out"
+
+The CUDA compiler identification is NVIDIA, found in "/lyceum/sr1g19/GFSM/build/CMakeFiles/3.22.0/CompilerIdCUDA/a.out"
+
+Parsed CUDA nvcc implicit link information from above output:
+  found 'PATH=' string: [/local/software/cuda/11.7/bin/../nvvm/bin:/local/software/cuda/11.7/bin:/local/software/gcc/8.5.0/bin:/local/software/gnumake/4.2/bin:/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/bin:/local/software/cuda/11.7/bin:/local/software/slurm/bin:/local/software/slurm/default/bin:/local/software/slurm/default/sbin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/lpp/mmfs/bin:/opt/ibutils/bin:/lyceum/sr1g19/bin:/local/bin:.]
+  found 'LIBRARIES=' string: ["-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib"]
+  considering line: [#$ rm tmp/a_dlink.reg.c]
+  considering line: [gcc -D__CUDA_ARCH__=860 -D__CUDA_ARCH_LIST__=520,600,610,750,860 -E -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -D__CUDACC__ -D__NVCC__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.compute_86.cpp1.ii" ]
+  considering line: [cicc --c++14 --gnu_version=80500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/3.22.0/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed   -arch compute_86 -m64 --no-version-ident -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 --include_file_name "CMakeCUDACompilerId.fatbin.c" -tused --gen_module_id_file --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --gen_c_file_name "tmp/CMakeCUDACompilerId.compute_86.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.compute_86.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.compute_86.cudafe1.gpu"  "tmp/CMakeCUDACompilerId.compute_86.cpp1.ii" -o "tmp/CMakeCUDACompilerId.compute_86.ptx"]
+  considering line: [gcc -D__CUDA_ARCH__=520 -D__CUDA_ARCH_LIST__=520,600,610,750,860 -E -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -D__CUDACC__ -D__NVCC__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.compute_52.cpp1.ii" ]
+  considering line: [cicc --c++14 --gnu_version=80500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/3.22.0/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed   -arch compute_52 -m64 --no-version-ident -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 --include_file_name "CMakeCUDACompilerId.fatbin.c" -tused --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --gen_c_file_name "tmp/CMakeCUDACompilerId.compute_52.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.compute_52.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.compute_52.cudafe1.gpu"  "tmp/CMakeCUDACompilerId.compute_52.cpp1.ii" -o "tmp/CMakeCUDACompilerId.compute_52.ptx"]
+  considering line: [ptxas -arch=sm_52 -m64  "tmp/CMakeCUDACompilerId.compute_52.ptx"  -o "tmp/CMakeCUDACompilerId.compute_52.cubin" ]
+  considering line: [gcc -D__CUDA_ARCH__=600 -D__CUDA_ARCH_LIST__=520,600,610,750,860 -E -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -D__CUDACC__ -D__NVCC__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.compute_60.cpp1.ii" ]
+  considering line: [cicc --c++14 --gnu_version=80500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/3.22.0/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed   -arch compute_60 -m64 --no-version-ident -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 --include_file_name "CMakeCUDACompilerId.fatbin.c" -tused --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --gen_c_file_name "tmp/CMakeCUDACompilerId.compute_60.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.compute_60.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.compute_60.cudafe1.gpu"  "tmp/CMakeCUDACompilerId.compute_60.cpp1.ii" -o "tmp/CMakeCUDACompilerId.compute_60.ptx"]
+  considering line: [ptxas -arch=sm_60 -m64  "tmp/CMakeCUDACompilerId.compute_60.ptx"  -o "tmp/CMakeCUDACompilerId.compute_60.cubin" ]
+  considering line: [gcc -D__CUDA_ARCH__=610 -D__CUDA_ARCH_LIST__=520,600,610,750,860 -E -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -D__CUDACC__ -D__NVCC__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.compute_61.cpp1.ii" ]
+  considering line: [cicc --c++14 --gnu_version=80500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/3.22.0/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed   -arch compute_61 -m64 --no-version-ident -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 --include_file_name "CMakeCUDACompilerId.fatbin.c" -tused --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --gen_c_file_name "tmp/CMakeCUDACompilerId.compute_61.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.compute_61.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.compute_61.cudafe1.gpu"  "tmp/CMakeCUDACompilerId.compute_61.cpp1.ii" -o "tmp/CMakeCUDACompilerId.compute_61.ptx"]
+  considering line: [ptxas -arch=sm_61 -m64  "tmp/CMakeCUDACompilerId.compute_61.ptx"  -o "tmp/CMakeCUDACompilerId.compute_61.cubin" ]
+  considering line: [gcc -D__CUDA_ARCH__=750 -D__CUDA_ARCH_LIST__=520,600,610,750,860 -E -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -D__CUDACC__ -D__NVCC__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.compute_75.cpp1.ii" ]
+  considering line: [cicc --c++14 --gnu_version=80500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/3.22.0/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed   -arch compute_75 -m64 --no-version-ident -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 --include_file_name "CMakeCUDACompilerId.fatbin.c" -tused --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --gen_c_file_name "tmp/CMakeCUDACompilerId.compute_75.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.compute_75.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.compute_75.cudafe1.gpu"  "tmp/CMakeCUDACompilerId.compute_75.cpp1.ii" -o "tmp/CMakeCUDACompilerId.compute_75.ptx"]
+  considering line: [ptxas -arch=sm_75 -m64  "tmp/CMakeCUDACompilerId.compute_75.ptx"  -o "tmp/CMakeCUDACompilerId.compute_75.cubin" ]
+  considering line: [ptxas -arch=sm_86 -m64  "tmp/CMakeCUDACompilerId.compute_86.ptx"  -o "tmp/CMakeCUDACompilerId.compute_86.cubin" ]
+  considering line: [fatbinary --create="tmp/CMakeCUDACompilerId.fatbin" -64 --cicc-cmdline="-ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 " "--image3=kind=elf,sm=52,file=tmp/CMakeCUDACompilerId.compute_52.cubin" "--image3=kind=elf,sm=60,file=tmp/CMakeCUDACompilerId.compute_60.cubin" "--image3=kind=elf,sm=61,file=tmp/CMakeCUDACompilerId.compute_61.cubin" "--image3=kind=elf,sm=75,file=tmp/CMakeCUDACompilerId.compute_75.cubin" "--image3=kind=elf,sm=86,file=tmp/CMakeCUDACompilerId.compute_86.cubin" --embedded-fatbin="tmp/CMakeCUDACompilerId.fatbin.c" ]
+  considering line: [gcc -D__CUDA_ARCH_LIST__=520,600,610,750,860 -E -x c++ -D__CUDACC__ -D__NVCC__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.cpp4.ii" ]
+  considering line: [cudafe++ --c++14 --gnu_version=80500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/3.22.0/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed  --m64 --parse_templates --gen_c_file_name "tmp/CMakeCUDACompilerId.compute_86.cudafe1.cpp" --stub_file_name "CMakeCUDACompilerId.compute_86.cudafe1.stub.c" --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" "tmp/CMakeCUDACompilerId.cpp4.ii" ]
+  considering line: [gcc -D__CUDA_ARCH__=860 -D__CUDA_ARCH_LIST__=520,600,610,750,860 -c -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.compute_86.cudafe1.cpp" -o "tmp/CMakeCUDACompilerId.o" ]
+  considering line: [nvlink -m64 --arch=sm_52 --register-link-binaries="tmp/a_dlink.reg.c"    "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 -report-arch "tmp/CMakeCUDACompilerId.o"  -lcudadevrt  -o "tmp/a_dlink.compute_52.cubin" --host-ccbin "gcc"]
+    ignoring nvlink line
+  considering line: [nvlink -m64 --arch=sm_60 --register-link-binaries="tmp/a_dlink.reg.c"    "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 -report-arch "tmp/CMakeCUDACompilerId.o"  -lcudadevrt  -o "tmp/a_dlink.compute_60.cubin" --host-ccbin "gcc"]
+    ignoring nvlink line
+  considering line: [nvlink -m64 --arch=sm_61 --register-link-binaries="tmp/a_dlink.reg.c"    "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 -report-arch "tmp/CMakeCUDACompilerId.o"  -lcudadevrt  -o "tmp/a_dlink.compute_61.cubin" --host-ccbin "gcc"]
+    ignoring nvlink line
+  considering line: [nvlink -m64 --arch=sm_75 --register-link-binaries="tmp/a_dlink.reg.c"    "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 -report-arch "tmp/CMakeCUDACompilerId.o"  -lcudadevrt  -o "tmp/a_dlink.compute_75.cubin" --host-ccbin "gcc"]
+    ignoring nvlink line
+  considering line: [nvlink -m64 --arch=sm_86 --register-link-binaries="tmp/a_dlink.reg.c"    "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 -report-arch "tmp/CMakeCUDACompilerId.o"  -lcudadevrt  -o "tmp/a_dlink.compute_86.cubin" --host-ccbin "gcc"]
+    ignoring nvlink line
+  considering line: [fatbinary --create="tmp/a_dlink.fatbin" -64 --cicc-cmdline="-ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 " -link "--image3=kind=elf,sm=52,file=tmp/a_dlink.compute_52.cubin" "--image3=kind=elf,sm=60,file=tmp/a_dlink.compute_60.cubin" "--image3=kind=elf,sm=61,file=tmp/a_dlink.compute_61.cubin" "--image3=kind=elf,sm=75,file=tmp/a_dlink.compute_75.cubin" "--image3=kind=elf,sm=86,file=tmp/a_dlink.compute_86.cubin" --embedded-fatbin="tmp/a_dlink.fatbin.c" ]
+  considering line: [gcc -D__CUDA_ARCH_LIST__=520,600,610,750,860 -c -x c++ -DFATBINFILE="\"tmp/a_dlink.fatbin.c\"" -DREGISTERLINKBINARYFILE="\"tmp/a_dlink.reg.c\"" -I. -D__NV_EXTRA_INITIALIZATION= -D__NV_EXTRA_FINALIZATION= -D__CUDA_INCLUDE_COMPILER_INTERNAL_HEADERS__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -m64 "/local/software/cuda/11.7/bin/crt/link.stub" -o "tmp/a_dlink.o" ]
+  considering line: [g++ -D__CUDA_ARCH_LIST__=520,600,610,750,860 -m64 -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib"  -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group -o "a.out" ]
+    extracted link line: [g++ -D__CUDA_ARCH_LIST__=520,600,610,750,860 -m64 -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib"  -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group -o "a.out" ]
+  considering line: []
+  extracted link launcher name: [g++]
+  found link launcher absolute path: [/local/software/gcc/8.5.0/bin/g++]
+
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  link line: [cuda-fake-ld g++ -D__CUDA_ARCH_LIST__=520,600,610,750,860 -m64 -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib"  -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group -o "a.out" ]
+    arg [cuda-fake-ld] ==> ignore
+    arg [g++] ==> ignore
+    arg [-D__CUDA_ARCH_LIST__=520,600,610,750,860] ==> ignore
+    arg [-m64] ==> ignore
+    arg [-Wl,--start-group] ==> ignore
+    arg [tmp/a_dlink.o] ==> ignore
+    arg [tmp/CMakeCUDACompilerId.o] ==> ignore
+    arg [-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs] ==> dir [/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs]
+    arg [-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib] ==> dir [/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib]
+    arg [-lcudadevrt] ==> lib [cudadevrt]
+    arg [-lcudart_static] ==> lib [cudart_static]
+    arg [-lrt] ==> lib [rt]
+    arg [-lpthread] ==> lib [pthread]
+    arg [-ldl] ==> lib [dl]
+    arg [-Wl,--end-group] ==> ignore
+    arg [-o] ==> ignore
+    arg [a.out] ==> ignore
+  collapse library dir [/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs] ==> [/local/software/cuda/11.7/targets/x86_64-linux/lib/stubs]
+  collapse library dir [/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib] ==> [/local/software/cuda/11.7/targets/x86_64-linux/lib]
+  implicit libs: [cudadevrt;cudart_static;rt;pthread;dl]
+  implicit objs: []
+  implicit dirs: [/local/software/cuda/11.7/targets/x86_64-linux/lib/stubs;/local/software/cuda/11.7/targets/x86_64-linux/lib]
+  implicit fwks: []
+
+
+Parsed CUDA nvcc include information from above output:
+  found 'PATH=' string: [/local/software/cuda/11.7/bin/../nvvm/bin:/local/software/cuda/11.7/bin:/local/software/gcc/8.5.0/bin:/local/software/gnumake/4.2/bin:/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/bin:/local/software/cuda/11.7/bin:/local/software/slurm/bin:/local/software/slurm/default/bin:/local/software/slurm/default/sbin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/lpp/mmfs/bin:/opt/ibutils/bin:/lyceum/sr1g19/bin:/local/bin:.]
+  found 'LIBRARIES=' string: ["-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib"]
+  considering line: [#$ rm tmp/a_dlink.reg.c]
+  considering line: [gcc -D__CUDA_ARCH__=860 -D__CUDA_ARCH_LIST__=520,600,610,750,860 -E -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -D__CUDACC__ -D__NVCC__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.compute_86.cpp1.ii" ]
+  considering line: [cicc --c++14 --gnu_version=80500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/3.22.0/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed   -arch compute_86 -m64 --no-version-ident -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 --include_file_name "CMakeCUDACompilerId.fatbin.c" -tused --gen_module_id_file --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --gen_c_file_name "tmp/CMakeCUDACompilerId.compute_86.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.compute_86.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.compute_86.cudafe1.gpu"  "tmp/CMakeCUDACompilerId.compute_86.cpp1.ii" -o "tmp/CMakeCUDACompilerId.compute_86.ptx"]
+  considering line: [gcc -D__CUDA_ARCH__=520 -D__CUDA_ARCH_LIST__=520,600,610,750,860 -E -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -D__CUDACC__ -D__NVCC__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.compute_52.cpp1.ii" ]
+  considering line: [cicc --c++14 --gnu_version=80500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/3.22.0/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed   -arch compute_52 -m64 --no-version-ident -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 --include_file_name "CMakeCUDACompilerId.fatbin.c" -tused --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --gen_c_file_name "tmp/CMakeCUDACompilerId.compute_52.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.compute_52.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.compute_52.cudafe1.gpu"  "tmp/CMakeCUDACompilerId.compute_52.cpp1.ii" -o "tmp/CMakeCUDACompilerId.compute_52.ptx"]
+  considering line: [ptxas -arch=sm_52 -m64  "tmp/CMakeCUDACompilerId.compute_52.ptx"  -o "tmp/CMakeCUDACompilerId.compute_52.cubin" ]
+  considering line: [gcc -D__CUDA_ARCH__=600 -D__CUDA_ARCH_LIST__=520,600,610,750,860 -E -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -D__CUDACC__ -D__NVCC__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.compute_60.cpp1.ii" ]
+  considering line: [cicc --c++14 --gnu_version=80500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/3.22.0/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed   -arch compute_60 -m64 --no-version-ident -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 --include_file_name "CMakeCUDACompilerId.fatbin.c" -tused --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --gen_c_file_name "tmp/CMakeCUDACompilerId.compute_60.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.compute_60.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.compute_60.cudafe1.gpu"  "tmp/CMakeCUDACompilerId.compute_60.cpp1.ii" -o "tmp/CMakeCUDACompilerId.compute_60.ptx"]
+  considering line: [ptxas -arch=sm_60 -m64  "tmp/CMakeCUDACompilerId.compute_60.ptx"  -o "tmp/CMakeCUDACompilerId.compute_60.cubin" ]
+  considering line: [gcc -D__CUDA_ARCH__=610 -D__CUDA_ARCH_LIST__=520,600,610,750,860 -E -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -D__CUDACC__ -D__NVCC__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.compute_61.cpp1.ii" ]
+  considering line: [cicc --c++14 --gnu_version=80500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/3.22.0/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed   -arch compute_61 -m64 --no-version-ident -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 --include_file_name "CMakeCUDACompilerId.fatbin.c" -tused --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --gen_c_file_name "tmp/CMakeCUDACompilerId.compute_61.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.compute_61.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.compute_61.cudafe1.gpu"  "tmp/CMakeCUDACompilerId.compute_61.cpp1.ii" -o "tmp/CMakeCUDACompilerId.compute_61.ptx"]
+  considering line: [ptxas -arch=sm_61 -m64  "tmp/CMakeCUDACompilerId.compute_61.ptx"  -o "tmp/CMakeCUDACompilerId.compute_61.cubin" ]
+  considering line: [gcc -D__CUDA_ARCH__=750 -D__CUDA_ARCH_LIST__=520,600,610,750,860 -E -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -D__CUDACC__ -D__NVCC__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.compute_75.cpp1.ii" ]
+  considering line: [cicc --c++14 --gnu_version=80500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/3.22.0/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed   -arch compute_75 -m64 --no-version-ident -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 --include_file_name "CMakeCUDACompilerId.fatbin.c" -tused --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --gen_c_file_name "tmp/CMakeCUDACompilerId.compute_75.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.compute_75.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.compute_75.cudafe1.gpu"  "tmp/CMakeCUDACompilerId.compute_75.cpp1.ii" -o "tmp/CMakeCUDACompilerId.compute_75.ptx"]
+  considering line: [ptxas -arch=sm_75 -m64  "tmp/CMakeCUDACompilerId.compute_75.ptx"  -o "tmp/CMakeCUDACompilerId.compute_75.cubin" ]
+  considering line: [ptxas -arch=sm_86 -m64  "tmp/CMakeCUDACompilerId.compute_86.ptx"  -o "tmp/CMakeCUDACompilerId.compute_86.cubin" ]
+  considering line: [fatbinary --create="tmp/CMakeCUDACompilerId.fatbin" -64 --cicc-cmdline="-ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 " "--image3=kind=elf,sm=52,file=tmp/CMakeCUDACompilerId.compute_52.cubin" "--image3=kind=elf,sm=60,file=tmp/CMakeCUDACompilerId.compute_60.cubin" "--image3=kind=elf,sm=61,file=tmp/CMakeCUDACompilerId.compute_61.cubin" "--image3=kind=elf,sm=75,file=tmp/CMakeCUDACompilerId.compute_75.cubin" "--image3=kind=elf,sm=86,file=tmp/CMakeCUDACompilerId.compute_86.cubin" --embedded-fatbin="tmp/CMakeCUDACompilerId.fatbin.c" ]
+  considering line: [gcc -D__CUDA_ARCH_LIST__=520,600,610,750,860 -E -x c++ -D__CUDACC__ -D__NVCC__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.cpp4.ii" ]
+  considering line: [cudafe++ --c++14 --gnu_version=80500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/3.22.0/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed  --m64 --parse_templates --gen_c_file_name "tmp/CMakeCUDACompilerId.compute_86.cudafe1.cpp" --stub_file_name "CMakeCUDACompilerId.compute_86.cudafe1.stub.c" --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" "tmp/CMakeCUDACompilerId.cpp4.ii" ]
+  considering line: [gcc -D__CUDA_ARCH__=860 -D__CUDA_ARCH_LIST__=520,600,610,750,860 -c -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.compute_86.cudafe1.cpp" -o "tmp/CMakeCUDACompilerId.o" ]
+  considering line: [nvlink -m64 --arch=sm_52 --register-link-binaries="tmp/a_dlink.reg.c"    "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 -report-arch "tmp/CMakeCUDACompilerId.o"  -lcudadevrt  -o "tmp/a_dlink.compute_52.cubin" --host-ccbin "gcc"]
+    ignoring nvlink line
+  considering line: [nvlink -m64 --arch=sm_60 --register-link-binaries="tmp/a_dlink.reg.c"    "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 -report-arch "tmp/CMakeCUDACompilerId.o"  -lcudadevrt  -o "tmp/a_dlink.compute_60.cubin" --host-ccbin "gcc"]
+    ignoring nvlink line
+  considering line: [nvlink -m64 --arch=sm_61 --register-link-binaries="tmp/a_dlink.reg.c"    "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 -report-arch "tmp/CMakeCUDACompilerId.o"  -lcudadevrt  -o "tmp/a_dlink.compute_61.cubin" --host-ccbin "gcc"]
+    ignoring nvlink line
+  considering line: [nvlink -m64 --arch=sm_75 --register-link-binaries="tmp/a_dlink.reg.c"    "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 -report-arch "tmp/CMakeCUDACompilerId.o"  -lcudadevrt  -o "tmp/a_dlink.compute_75.cubin" --host-ccbin "gcc"]
+    ignoring nvlink line
+  considering line: [nvlink -m64 --arch=sm_86 --register-link-binaries="tmp/a_dlink.reg.c"    "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 -report-arch "tmp/CMakeCUDACompilerId.o"  -lcudadevrt  -o "tmp/a_dlink.compute_86.cubin" --host-ccbin "gcc"]
+    ignoring nvlink line
+  considering line: [fatbinary --create="tmp/a_dlink.fatbin" -64 --cicc-cmdline="-ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 " -link "--image3=kind=elf,sm=52,file=tmp/a_dlink.compute_52.cubin" "--image3=kind=elf,sm=60,file=tmp/a_dlink.compute_60.cubin" "--image3=kind=elf,sm=61,file=tmp/a_dlink.compute_61.cubin" "--image3=kind=elf,sm=75,file=tmp/a_dlink.compute_75.cubin" "--image3=kind=elf,sm=86,file=tmp/a_dlink.compute_86.cubin" --embedded-fatbin="tmp/a_dlink.fatbin.c" ]
+  considering line: [gcc -D__CUDA_ARCH_LIST__=520,600,610,750,860 -c -x c++ -DFATBINFILE="\"tmp/a_dlink.fatbin.c\"" -DREGISTERLINKBINARYFILE="\"tmp/a_dlink.reg.c\"" -I. -D__NV_EXTRA_INITIALIZATION= -D__NV_EXTRA_FINALIZATION= -D__CUDA_INCLUDE_COMPILER_INTERNAL_HEADERS__  "-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"    -D__CUDACC_VER_MAJOR__=11 -D__CUDACC_VER_MINOR__=7 -D__CUDACC_VER_BUILD__=64 -D__CUDA_API_VER_MAJOR__=11 -D__CUDA_API_VER_MINOR__=7 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -m64 "/local/software/cuda/11.7/bin/crt/link.stub" -o "tmp/a_dlink.o" ]
+  considering line: [g++ -D__CUDA_ARCH_LIST__=520,600,610,750,860 -m64 -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib"  -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group -o "a.out" ]
+    extracted link line: [g++ -D__CUDA_ARCH_LIST__=520,600,610,750,860 -m64 -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib"  -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group -o "a.out" ]
+  considering line: []
+  extracted link launcher name: [g++]
+  found link launcher absolute path: [/local/software/gcc/8.5.0/bin/g++]
+  found 'INCLUDES=' string: ["-I/local/software/cuda/11.7/bin/../targets/x86_64-linux/include"  ]
+
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  link line: [cuda-fake-ld g++ -D__CUDA_ARCH_LIST__=520,600,610,750,860 -m64 -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs" "-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib"  -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group -o "a.out" ]
+    arg [cuda-fake-ld] ==> ignore
+    arg [g++] ==> ignore
+    arg [-D__CUDA_ARCH_LIST__=520,600,610,750,860] ==> ignore
+    arg [-m64] ==> ignore
+    arg [-Wl,--start-group] ==> ignore
+    arg [tmp/a_dlink.o] ==> ignore
+    arg [tmp/CMakeCUDACompilerId.o] ==> ignore
+    arg [-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs] ==> dir [/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs]
+    arg [-L/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib] ==> dir [/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib]
+    arg [-lcudadevrt] ==> lib [cudadevrt]
+    arg [-lcudart_static] ==> lib [cudart_static]
+    arg [-lrt] ==> lib [rt]
+    arg [-lpthread] ==> lib [pthread]
+    arg [-ldl] ==> lib [dl]
+    arg [-Wl,--end-group] ==> ignore
+    arg [-o] ==> ignore
+    arg [a.out] ==> ignore
+  collapse library dir [/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib/stubs] ==> [/local/software/cuda/11.7/targets/x86_64-linux/lib/stubs]
+  collapse library dir [/local/software/cuda/11.7/bin/../targets/x86_64-linux/lib] ==> [/local/software/cuda/11.7/targets/x86_64-linux/lib]
+  implicit libs: [cudadevrt;cudart_static;rt;pthread;dl]
+  implicit objs: []
+  implicit dirs: [/local/software/cuda/11.7/targets/x86_64-linux/lib/stubs;/local/software/cuda/11.7/targets/x86_64-linux/lib]
+  implicit fwks: []
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /lyceum/sr1g19/GFSM/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c4f53/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c4f53.dir/build.make CMakeFiles/cmTC_c4f53.dir/build
+gmake[1]: Entering directory `/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c4f53.dir/CMakeCXXCompilerABI.cpp.o
+/local/software/gcc/8.5.0/bin/g++   -v -o CMakeFiles/cmTC_c4f53.dir/CMakeCXXCompilerABI.cpp.o -c /mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+Using built-in specs.
+COLLECT_GCC=/local/software/gcc/8.5.0/bin/g++
+Target: x86_64-pc-linux-gnu
+Configured with: ../source/gcc-8.5.0/configure --prefix=/local/software/gcc/8.5.0/.
+Thread model: posix
+gcc version 8.5.0 (GCC) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c4f53.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/cc1plus -quiet -v -iprefix /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/ -D_GNU_SOURCE /mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_c4f53.dir/CMakeCXXCompilerABI.cpp.o -version -o /tmp/ccdXQoYo.s
+GNU C++14 (GCC) version 8.5.0 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 8.5.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include"
+ignoring nonexistent directory "/usr/local/include"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed"
+ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /local/software/cuda/11.7/targets/x86_64-linux/include
+ .
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../include
+ /usr/include
+End of search list.
+GNU C++14 (GCC) version 8.5.0 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 8.5.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: be2ce6a69e49d5bd4f4088f0801685a0
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c4f53.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ as -v --64 -o CMakeFiles/cmTC_c4f53.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccdXQoYo.s
+GNU assembler version 2.27 (x86_64-redhat-linux) using BFD version version 2.27-43.base.el7
+COMPILER_PATH=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/
+LIBRARY_PATH=/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c4f53.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+Linking CXX executable cmTC_c4f53
+/mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c4f53.dir/link.txt --verbose=1
+/local/software/gcc/8.5.0/bin/g++  -v CMakeFiles/cmTC_c4f53.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_c4f53 
+Using built-in specs.
+COLLECT_GCC=/local/software/gcc/8.5.0/bin/g++
+COLLECT_LTO_WRAPPER=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/lto-wrapper
+Target: x86_64-pc-linux-gnu
+Configured with: ../source/gcc-8.5.0/configure --prefix=/local/software/gcc/8.5.0/.
+Thread model: posix
+gcc version 8.5.0 (GCC) 
+COMPILER_PATH=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/
+LIBRARY_PATH=/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_c4f53' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/collect2 -plugin /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/liblto_plugin.so -plugin-opt=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccM7T0Zq.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_c4f53 /lib/../lib64/crt1.o /lib/../lib64/crti.o /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtbegin.o -L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0 -L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc -L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../.. CMakeFiles/cmTC_c4f53.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtend.o /lib/../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_c4f53' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+gmake[1]: Leaving directory `/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/local/software/cuda/11.7/targets/x86_64-linux/include]
+    add: [.]
+    add: [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0]
+    add: [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu]
+    add: [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward]
+    add: [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include]
+    add: [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed]
+    add: [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../include]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/local/software/cuda/11.7/targets/x86_64-linux/include] ==> [/local/software/cuda/11.7/targets/x86_64-linux/include]
+  skipping relative include dir [.]
+  collapse include dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0] ==> [/mainfs/local/software/gcc/8.5.0/include/c++/8.5.0]
+  collapse include dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu] ==> [/mainfs/local/software/gcc/8.5.0/include/c++/8.5.0/x86_64-pc-linux-gnu]
+  collapse include dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward] ==> [/mainfs/local/software/gcc/8.5.0/include/c++/8.5.0/backward]
+  collapse include dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include] ==> [/mainfs/local/software/gcc/8.5.0/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include]
+  collapse include dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed] ==> [/mainfs/local/software/gcc/8.5.0/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed]
+  collapse include dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../include] ==> [/mainfs/local/software/gcc/8.5.0/include]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/local/software/cuda/11.7/targets/x86_64-linux/include;/mainfs/local/software/gcc/8.5.0/include/c++/8.5.0;/mainfs/local/software/gcc/8.5.0/include/c++/8.5.0/x86_64-pc-linux-gnu;/mainfs/local/software/gcc/8.5.0/include/c++/8.5.0/backward;/mainfs/local/software/gcc/8.5.0/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include;/mainfs/local/software/gcc/8.5.0/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed;/mainfs/local/software/gcc/8.5.0/include;/usr/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /lyceum/sr1g19/GFSM/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c4f53/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c4f53.dir/build.make CMakeFiles/cmTC_c4f53.dir/build]
+  ignore line: [gmake[1]: Entering directory `/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_c4f53.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/local/software/gcc/8.5.0/bin/g++   -v -o CMakeFiles/cmTC_c4f53.dir/CMakeCXXCompilerABI.cpp.o -c /mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/local/software/gcc/8.5.0/bin/g++]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../source/gcc-8.5.0/configure --prefix=/local/software/gcc/8.5.0/.]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.5.0 (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c4f53.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/cc1plus -quiet -v -iprefix /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/ -D_GNU_SOURCE /mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_c4f53.dir/CMakeCXXCompilerABI.cpp.o -version -o /tmp/ccdXQoYo.s]
+  ignore line: [GNU C++14 (GCC) version 8.5.0 (x86_64-pc-linux-gnu)]
+  ignore line: [	compiled by GNU C version 8.5.0  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include"]
+  ignore line: [ignoring nonexistent directory "/usr/local/include"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /local/software/cuda/11.7/targets/x86_64-linux/include]
+  ignore line: [ .]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../include]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C++14 (GCC) version 8.5.0 (x86_64-pc-linux-gnu)]
+  ignore line: [	compiled by GNU C version 8.5.0  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: be2ce6a69e49d5bd4f4088f0801685a0]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c4f53.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_c4f53.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccdXQoYo.s]
+  ignore line: [GNU assembler version 2.27 (x86_64-redhat-linux) using BFD version version 2.27-43.base.el7]
+  ignore line: [COMPILER_PATH=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/]
+  ignore line: [LIBRARY_PATH=/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c4f53.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  ignore line: [Linking CXX executable cmTC_c4f53]
+  ignore line: [/mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c4f53.dir/link.txt --verbose=1]
+  ignore line: [/local/software/gcc/8.5.0/bin/g++  -v CMakeFiles/cmTC_c4f53.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_c4f53 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/local/software/gcc/8.5.0/bin/g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/lto-wrapper]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../source/gcc-8.5.0/configure --prefix=/local/software/gcc/8.5.0/.]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.5.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/]
+  ignore line: [LIBRARY_PATH=/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_c4f53' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/collect2 -plugin /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/liblto_plugin.so -plugin-opt=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccM7T0Zq.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_c4f53 /lib/../lib64/crt1.o /lib/../lib64/crti.o /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtbegin.o -L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0 -L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc -L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../.. CMakeFiles/cmTC_c4f53.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtend.o /lib/../lib64/crtn.o]
+    arg [/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccM7T0Zq.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_c4f53] ==> ignore
+    arg [/lib/../lib64/crt1.o] ==> obj [/lib/../lib64/crt1.o]
+    arg [/lib/../lib64/crti.o] ==> obj [/lib/../lib64/crti.o]
+    arg [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtbegin.o] ==> obj [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtbegin.o]
+    arg [-L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0] ==> dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0]
+    arg [-L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc] ==> dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc]
+    arg [-L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64] ==> dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../..] ==> dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../..]
+    arg [CMakeFiles/cmTC_c4f53.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtend.o] ==> obj [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtend.o]
+    arg [/lib/../lib64/crtn.o] ==> obj [/lib/../lib64/crtn.o]
+  collapse obj [/lib/../lib64/crt1.o] ==> [/lib64/crt1.o]
+  collapse obj [/lib/../lib64/crti.o] ==> [/lib64/crti.o]
+  collapse obj [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtbegin.o] ==> [/mainfs/local/software/gcc/8.5.0/lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtbegin.o]
+  collapse obj [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtend.o] ==> [/mainfs/local/software/gcc/8.5.0/lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtend.o]
+  collapse obj [/lib/../lib64/crtn.o] ==> [/lib64/crtn.o]
+  collapse library dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0] ==> [/mainfs/local/software/gcc/8.5.0/lib/gcc/x86_64-pc-linux-gnu/8.5.0]
+  collapse library dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc] ==> [/mainfs/local/software/gcc/8.5.0/lib/gcc]
+  collapse library dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64] ==> [/mainfs/local/software/gcc/8.5.0/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../..] ==> [/mainfs/local/software/gcc/8.5.0/lib]
+  implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit objs: [/lib64/crt1.o;/lib64/crti.o;/mainfs/local/software/gcc/8.5.0/lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtbegin.o;/mainfs/local/software/gcc/8.5.0/lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtend.o;/lib64/crtn.o]
+  implicit dirs: [/mainfs/local/software/gcc/8.5.0/lib/gcc/x86_64-pc-linux-gnu/8.5.0;/mainfs/local/software/gcc/8.5.0/lib/gcc;/mainfs/local/software/gcc/8.5.0/lib64;/lib64;/usr/lib64;/mainfs/local/software/gcc/8.5.0/lib]
+  implicit fwks: []
+
+
+Detecting CUDA compiler ABI info compiled with the following output:
+Change Dir: /lyceum/sr1g19/GFSM/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_81f4b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_81f4b.dir/build.make CMakeFiles/cmTC_81f4b.dir/build
+gmake[1]: Entering directory `/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/CMakeTmp'
+Building CUDA object CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o
+/local/software/cuda/11.7/bin/nvcc -forward-unknown-to-host-compiler   --generate-code=arch=compute_52,code=[compute_52,sm_52] --generate-code=arch=compute_60,code=[compute_60,sm_60] --generate-code=arch=compute_61,code=[compute_61,sm_61] --generate-code=arch=compute_75,code=[compute_75,sm_75] --generate-code=arch=compute_86,code=[compute_86,sm_86]   -Xcompiler=-v -MD -MT CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o -MF CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o.d -x cu -c /mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/share/cmake-3.22/Modules/CMakeCUDACompilerABI.cu -o CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o
+Using built-in specs.
+COLLECT_GCC=gcc
+Target: x86_64-pc-linux-gnu
+Configured with: ../source/gcc-8.5.0/configure --prefix=/local/software/gcc/8.5.0/.
+Thread model: posix
+gcc version 8.5.0 (GCC) 
+COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=520' '-D' '__CUDA_ARCH_LIST__=520,600,610,750,860' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-11_CMakeCUDACompilerABI.compute_52.cpp1.ii' '-mtune=generic' '-march=x86-64'
+ /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/cc1plus -E -quiet -v -I /local/software/cuda/11.7/bin/../targets/x86_64-linux/include -iprefix /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/ -D_GNU_SOURCE -D __CUDA_ARCH__=520 -D __CUDA_ARCH_LIST__=520,600,610,750,860 -D CUDA_DOUBLE_MATH_FUNCTIONS -D __CUDACC__ -D __NVCC__ -D __CUDACC_VER_MAJOR__=11 -D __CUDACC_VER_MINOR__=7 -D __CUDACC_VER_BUILD__=64 -D __CUDA_API_VER_MAJOR__=11 -D __CUDA_API_VER_MINOR__=7 -D __NVCC_DIAG_PRAGMA_SUPPORT__=1 -include cuda_runtime.h /mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/share/cmake-3.22/Modules/CMakeCUDACompilerABI.cu -o /tmp/tmpxft_000378eb_00000000-11_CMakeCUDACompilerABI.compute_52.cpp1.ii -m64 -mtune=generic -march=x86-64
+ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include"
+ignoring nonexistent directory "/usr/local/include"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed"
+ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"
+ignoring duplicate directory "/local/software/cuda/11.7/targets/x86_64-linux/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /local/software/cuda/11.7/bin/../targets/x86_64-linux/include
+ .
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../include
+ /usr/include
+End of search list.
+COMPILER_PATH=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/
+LIBRARY_PATH=/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=520' '-D' '__CUDA_ARCH_LIST__=520,600,610,750,860' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-11_CMakeCUDACompilerABI.compute_52.cpp1.ii' '-mtune=generic' '-march=x86-64'
+Using built-in specs.
+COLLECT_GCC=gcc
+Target: x86_64-pc-linux-gnu
+Configured with: ../source/gcc-8.5.0/configure --prefix=/local/software/gcc/8.5.0/.
+Thread model: posix
+gcc version 8.5.0 (GCC) 
+COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=600' '-D' '__CUDA_ARCH_LIST__=520,600,610,750,860' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-12_CMakeCUDACompilerABI.compute_60.cpp1.ii' '-mtune=generic' '-march=x86-64'
+ /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/cc1plus -E -quiet -v -I /local/software/cuda/11.7/bin/../targets/x86_64-linux/include -iprefix /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/ -D_GNU_SOURCE -D __CUDA_ARCH__=600 -D __CUDA_ARCH_LIST__=520,600,610,750,860 -D CUDA_DOUBLE_MATH_FUNCTIONS -D __CUDACC__ -D __NVCC__ -D __CUDACC_VER_MAJOR__=11 -D __CUDACC_VER_MINOR__=7 -D __CUDACC_VER_BUILD__=64 -D __CUDA_API_VER_MAJOR__=11 -D __CUDA_API_VER_MINOR__=7 -D __NVCC_DIAG_PRAGMA_SUPPORT__=1 -include cuda_runtime.h /mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/share/cmake-3.22/Modules/CMakeCUDACompilerABI.cu -o /tmp/tmpxft_000378eb_00000000-12_CMakeCUDACompilerABI.compute_60.cpp1.ii -m64 -mtune=generic -march=x86-64
+ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include"
+ignoring nonexistent directory "/usr/local/include"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed"
+ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"
+ignoring duplicate directory "/local/software/cuda/11.7/targets/x86_64-linux/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /local/software/cuda/11.7/bin/../targets/x86_64-linux/include
+ .
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../include
+ /usr/include
+End of search list.
+COMPILER_PATH=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/
+LIBRARY_PATH=/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=600' '-D' '__CUDA_ARCH_LIST__=520,600,610,750,860' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-12_CMakeCUDACompilerABI.compute_60.cpp1.ii' '-mtune=generic' '-march=x86-64'
+Using built-in specs.
+COLLECT_GCC=gcc
+Target: x86_64-pc-linux-gnu
+Configured with: ../source/gcc-8.5.0/configure --prefix=/local/software/gcc/8.5.0/.
+Thread model: posix
+gcc version 8.5.0 (GCC) 
+COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=610' '-D' '__CUDA_ARCH_LIST__=520,600,610,750,860' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-13_CMakeCUDACompilerABI.compute_61.cpp1.ii' '-mtune=generic' '-march=x86-64'
+ /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/cc1plus -E -quiet -v -I /local/software/cuda/11.7/bin/../targets/x86_64-linux/include -iprefix /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/ -D_GNU_SOURCE -D __CUDA_ARCH__=610 -D __CUDA_ARCH_LIST__=520,600,610,750,860 -D CUDA_DOUBLE_MATH_FUNCTIONS -D __CUDACC__ -D __NVCC__ -D __CUDACC_VER_MAJOR__=11 -D __CUDACC_VER_MINOR__=7 -D __CUDACC_VER_BUILD__=64 -D __CUDA_API_VER_MAJOR__=11 -D __CUDA_API_VER_MINOR__=7 -D __NVCC_DIAG_PRAGMA_SUPPORT__=1 -include cuda_runtime.h /mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/share/cmake-3.22/Modules/CMakeCUDACompilerABI.cu -o /tmp/tmpxft_000378eb_00000000-13_CMakeCUDACompilerABI.compute_61.cpp1.ii -m64 -mtune=generic -march=x86-64
+ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include"
+ignoring nonexistent directory "/usr/local/include"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed"
+ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"
+ignoring duplicate directory "/local/software/cuda/11.7/targets/x86_64-linux/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /local/software/cuda/11.7/bin/../targets/x86_64-linux/include
+ .
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../include
+ /usr/include
+End of search list.
+COMPILER_PATH=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/
+LIBRARY_PATH=/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=610' '-D' '__CUDA_ARCH_LIST__=520,600,610,750,860' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-13_CMakeCUDACompilerABI.compute_61.cpp1.ii' '-mtune=generic' '-march=x86-64'
+Using built-in specs.
+COLLECT_GCC=gcc
+Target: x86_64-pc-linux-gnu
+Configured with: ../source/gcc-8.5.0/configure --prefix=/local/software/gcc/8.5.0/.
+Thread model: posix
+gcc version 8.5.0 (GCC) 
+COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=750' '-D' '__CUDA_ARCH_LIST__=520,600,610,750,860' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-14_CMakeCUDACompilerABI.compute_75.cpp1.ii' '-mtune=generic' '-march=x86-64'
+ /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/cc1plus -E -quiet -v -I /local/software/cuda/11.7/bin/../targets/x86_64-linux/include -iprefix /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/ -D_GNU_SOURCE -D __CUDA_ARCH__=750 -D __CUDA_ARCH_LIST__=520,600,610,750,860 -D CUDA_DOUBLE_MATH_FUNCTIONS -D __CUDACC__ -D __NVCC__ -D __CUDACC_VER_MAJOR__=11 -D __CUDACC_VER_MINOR__=7 -D __CUDACC_VER_BUILD__=64 -D __CUDA_API_VER_MAJOR__=11 -D __CUDA_API_VER_MINOR__=7 -D __NVCC_DIAG_PRAGMA_SUPPORT__=1 -include cuda_runtime.h /mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/share/cmake-3.22/Modules/CMakeCUDACompilerABI.cu -o /tmp/tmpxft_000378eb_00000000-14_CMakeCUDACompilerABI.compute_75.cpp1.ii -m64 -mtune=generic -march=x86-64
+ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include"
+ignoring nonexistent directory "/usr/local/include"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed"
+ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"
+ignoring duplicate directory "/local/software/cuda/11.7/targets/x86_64-linux/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /local/software/cuda/11.7/bin/../targets/x86_64-linux/include
+ .
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../include
+ /usr/include
+End of search list.
+COMPILER_PATH=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/
+LIBRARY_PATH=/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=750' '-D' '__CUDA_ARCH_LIST__=520,600,610,750,860' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-14_CMakeCUDACompilerABI.compute_75.cpp1.ii' '-mtune=generic' '-march=x86-64'
+Using built-in specs.
+COLLECT_GCC=gcc
+Target: x86_64-pc-linux-gnu
+Configured with: ../source/gcc-8.5.0/configure --prefix=/local/software/gcc/8.5.0/.
+Thread model: posix
+gcc version 8.5.0 (GCC) 
+COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=860' '-D' '__CUDA_ARCH_LIST__=520,600,610,750,860' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-15_CMakeCUDACompilerABI.compute_86.cpp1.ii' '-mtune=generic' '-march=x86-64'
+ /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/cc1plus -E -quiet -v -I /local/software/cuda/11.7/bin/../targets/x86_64-linux/include -iprefix /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/ -D_GNU_SOURCE -D __CUDA_ARCH__=860 -D __CUDA_ARCH_LIST__=520,600,610,750,860 -D CUDA_DOUBLE_MATH_FUNCTIONS -D __CUDACC__ -D __NVCC__ -D __CUDACC_VER_MAJOR__=11 -D __CUDACC_VER_MINOR__=7 -D __CUDACC_VER_BUILD__=64 -D __CUDA_API_VER_MAJOR__=11 -D __CUDA_API_VER_MINOR__=7 -D __NVCC_DIAG_PRAGMA_SUPPORT__=1 -include cuda_runtime.h /mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/share/cmake-3.22/Modules/CMakeCUDACompilerABI.cu -o /tmp/tmpxft_000378eb_00000000-15_CMakeCUDACompilerABI.compute_86.cpp1.ii -m64 -mtune=generic -march=x86-64
+ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include"
+ignoring nonexistent directory "/usr/local/include"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed"
+ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"
+ignoring duplicate directory "/local/software/cuda/11.7/targets/x86_64-linux/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /local/software/cuda/11.7/bin/../targets/x86_64-linux/include
+ .
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../include
+ /usr/include
+End of search list.
+COMPILER_PATH=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/
+LIBRARY_PATH=/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=860' '-D' '__CUDA_ARCH_LIST__=520,600,610,750,860' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-15_CMakeCUDACompilerABI.compute_86.cpp1.ii' '-mtune=generic' '-march=x86-64'
+Using built-in specs.
+COLLECT_GCC=gcc
+Target: x86_64-pc-linux-gnu
+Configured with: ../source/gcc-8.5.0/configure --prefix=/local/software/gcc/8.5.0/.
+Thread model: posix
+gcc version 8.5.0 (GCC) 
+COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH_LIST__=520,600,610,750,860' '-E' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-5_CMakeCUDACompilerABI.cpp4.ii' '-mtune=generic' '-march=x86-64'
+ /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/cc1plus -E -quiet -v -I /local/software/cuda/11.7/bin/../targets/x86_64-linux/include -iprefix /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/ -D_GNU_SOURCE -D __CUDA_ARCH_LIST__=520,600,610,750,860 -D __CUDACC__ -D __NVCC__ -D __CUDACC_VER_MAJOR__=11 -D __CUDACC_VER_MINOR__=7 -D __CUDACC_VER_BUILD__=64 -D __CUDA_API_VER_MAJOR__=11 -D __CUDA_API_VER_MINOR__=7 -D __NVCC_DIAG_PRAGMA_SUPPORT__=1 -include cuda_runtime.h /mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/share/cmake-3.22/Modules/CMakeCUDACompilerABI.cu -o /tmp/tmpxft_000378eb_00000000-5_CMakeCUDACompilerABI.cpp4.ii -m64 -mtune=generic -march=x86-64
+ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include"
+ignoring nonexistent directory "/usr/local/include"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed"
+ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"
+ignoring duplicate directory "/local/software/cuda/11.7/targets/x86_64-linux/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /local/software/cuda/11.7/bin/../targets/x86_64-linux/include
+ .
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../include
+ /usr/include
+End of search list.
+COMPILER_PATH=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/
+LIBRARY_PATH=/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH_LIST__=520,600,610,750,860' '-E' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-5_CMakeCUDACompilerABI.cpp4.ii' '-mtune=generic' '-march=x86-64'
+Using built-in specs.
+COLLECT_GCC=gcc
+Target: x86_64-pc-linux-gnu
+Configured with: ../source/gcc-8.5.0/configure --prefix=/local/software/gcc/8.5.0/.
+Thread model: posix
+gcc version 8.5.0 (GCC) 
+COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=860' '-D' '__CUDA_ARCH_LIST__=520,600,610,750,860' '-c' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-m64' '-o' 'CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o' '-mtune=generic' '-march=x86-64'
+ /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/cc1plus -quiet -v -I /local/software/cuda/11.7/bin/../targets/x86_64-linux/include -iprefix /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/ -D_GNU_SOURCE -D __CUDA_ARCH__=860 -D __CUDA_ARCH_LIST__=520,600,610,750,860 -D CUDA_DOUBLE_MATH_FUNCTIONS /tmp/tmpxft_000378eb_00000000-6_CMakeCUDACompilerABI.compute_86.cudafe1.cpp -quiet -dumpbase tmpxft_000378eb_00000000-6_CMakeCUDACompilerABI.compute_86.cudafe1.cpp -m64 -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o -version -o /tmp/ccOZcXYI.s
+GNU C++14 (GCC) version 8.5.0 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 8.5.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include"
+ignoring nonexistent directory "/usr/local/include"
+ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed"
+ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"
+ignoring duplicate directory "/local/software/cuda/11.7/targets/x86_64-linux/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /local/software/cuda/11.7/bin/../targets/x86_64-linux/include
+ .
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed
+ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../include
+ /usr/include
+End of search list.
+GNU C++14 (GCC) version 8.5.0 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 8.5.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: be2ce6a69e49d5bd4f4088f0801685a0
+COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=860' '-D' '__CUDA_ARCH_LIST__=520,600,610,750,860' '-c' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-m64' '-o' 'CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o' '-mtune=generic' '-march=x86-64'
+ as -v -I /local/software/cuda/11.7/bin/../targets/x86_64-linux/include --64 -o CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o /tmp/ccOZcXYI.s
+GNU assembler version 2.27 (x86_64-redhat-linux) using BFD version version 2.27-43.base.el7
+COMPILER_PATH=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/
+LIBRARY_PATH=/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=860' '-D' '__CUDA_ARCH_LIST__=520,600,610,750,860' '-c' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-m64' '-o' 'CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o' '-mtune=generic' '-march=x86-64'
+Linking CUDA executable cmTC_81f4b
+/mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_81f4b.dir/link.txt --verbose=1
+/local/software/gcc/8.5.0/bin/g++  -v CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o -o cmTC_81f4b  -lcudadevrt -lcudart_static -lrt -lpthread -ldl  -L"/local/software/cuda/11.7/targets/x86_64-linux/lib/stubs" -L"/local/software/cuda/11.7/targets/x86_64-linux/lib"
+Using built-in specs.
+COLLECT_GCC=/local/software/gcc/8.5.0/bin/g++
+COLLECT_LTO_WRAPPER=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/lto-wrapper
+Target: x86_64-pc-linux-gnu
+Configured with: ../source/gcc-8.5.0/configure --prefix=/local/software/gcc/8.5.0/.
+Thread model: posix
+gcc version 8.5.0 (GCC) 
+COMPILER_PATH=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/
+LIBRARY_PATH=/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_81f4b' '-L/local/software/cuda/11.7/targets/x86_64-linux/lib/stubs' '-L/local/software/cuda/11.7/targets/x86_64-linux/lib' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/collect2 -plugin /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/liblto_plugin.so -plugin-opt=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cc7aaQaW.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_81f4b /lib/../lib64/crt1.o /lib/../lib64/crti.o /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtbegin.o -L/local/software/cuda/11.7/targets/x86_64-linux/lib/stubs -L/local/software/cuda/11.7/targets/x86_64-linux/lib -L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0 -L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc -L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../.. CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o -lcudadevrt -lcudart_static -lrt -lpthread -ldl -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtend.o /lib/../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_81f4b' '-L/local/software/cuda/11.7/targets/x86_64-linux/lib/stubs' '-L/local/software/cuda/11.7/targets/x86_64-linux/lib' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+gmake[1]: Leaving directory `/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed CUDA implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/local/software/cuda/11.7/bin/../targets/x86_64-linux/include]
+    add: [.]
+    add: [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0]
+    add: [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu]
+    add: [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward]
+    add: [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include]
+    add: [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed]
+    add: [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../include]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/local/software/cuda/11.7/bin/../targets/x86_64-linux/include] ==> [/local/software/cuda/11.7/targets/x86_64-linux/include]
+  skipping relative include dir [.]
+  collapse include dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0] ==> [/mainfs/local/software/gcc/8.5.0/include/c++/8.5.0]
+  collapse include dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu] ==> [/mainfs/local/software/gcc/8.5.0/include/c++/8.5.0/x86_64-pc-linux-gnu]
+  collapse include dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward] ==> [/mainfs/local/software/gcc/8.5.0/include/c++/8.5.0/backward]
+  collapse include dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include] ==> [/mainfs/local/software/gcc/8.5.0/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include]
+  collapse include dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed] ==> [/mainfs/local/software/gcc/8.5.0/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed]
+  collapse include dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../include] ==> [/mainfs/local/software/gcc/8.5.0/include]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/local/software/cuda/11.7/targets/x86_64-linux/include;/mainfs/local/software/gcc/8.5.0/include/c++/8.5.0;/mainfs/local/software/gcc/8.5.0/include/c++/8.5.0/x86_64-pc-linux-gnu;/mainfs/local/software/gcc/8.5.0/include/c++/8.5.0/backward;/mainfs/local/software/gcc/8.5.0/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include;/mainfs/local/software/gcc/8.5.0/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed;/mainfs/local/software/gcc/8.5.0/include;/usr/include]
+
+
+Parsed CUDA implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /lyceum/sr1g19/GFSM/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_81f4b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_81f4b.dir/build.make CMakeFiles/cmTC_81f4b.dir/build]
+  ignore line: [gmake[1]: Entering directory `/mainfs/lyceum/sr1g19/GFSM/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CUDA object CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o]
+  ignore line: [/local/software/cuda/11.7/bin/nvcc -forward-unknown-to-host-compiler   --generate-code=arch=compute_52 code=[compute_52 sm_52] --generate-code=arch=compute_60 code=[compute_60 sm_60] --generate-code=arch=compute_61 code=[compute_61 sm_61] --generate-code=arch=compute_75 code=[compute_75 sm_75] --generate-code=arch=compute_86 code=[compute_86 sm_86]   -Xcompiler=-v -MD -MT CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o -MF CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o.d -x cu -c /mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/share/cmake-3.22/Modules/CMakeCUDACompilerABI.cu -o CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=gcc]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../source/gcc-8.5.0/configure --prefix=/local/software/gcc/8.5.0/.]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.5.0 (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=520' '-D' '__CUDA_ARCH_LIST__=520 600 610 750 860' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-11_CMakeCUDACompilerABI.compute_52.cpp1.ii' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/cc1plus -E -quiet -v -I /local/software/cuda/11.7/bin/../targets/x86_64-linux/include -iprefix /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/ -D_GNU_SOURCE -D __CUDA_ARCH__=520 -D __CUDA_ARCH_LIST__=520 600 610 750 860 -D CUDA_DOUBLE_MATH_FUNCTIONS -D __CUDACC__ -D __NVCC__ -D __CUDACC_VER_MAJOR__=11 -D __CUDACC_VER_MINOR__=7 -D __CUDACC_VER_BUILD__=64 -D __CUDA_API_VER_MAJOR__=11 -D __CUDA_API_VER_MINOR__=7 -D __NVCC_DIAG_PRAGMA_SUPPORT__=1 -include cuda_runtime.h /mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/share/cmake-3.22/Modules/CMakeCUDACompilerABI.cu -o /tmp/tmpxft_000378eb_00000000-11_CMakeCUDACompilerABI.compute_52.cpp1.ii -m64 -mtune=generic -march=x86-64]
+  ignore line: [ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include"]
+  ignore line: [ignoring nonexistent directory "/usr/local/include"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [ignoring duplicate directory "/local/software/cuda/11.7/targets/x86_64-linux/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /local/software/cuda/11.7/bin/../targets/x86_64-linux/include]
+  ignore line: [ .]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../include]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [COMPILER_PATH=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/]
+  ignore line: [LIBRARY_PATH=/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=520' '-D' '__CUDA_ARCH_LIST__=520 600 610 750 860' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-11_CMakeCUDACompilerABI.compute_52.cpp1.ii' '-mtune=generic' '-march=x86-64']
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=gcc]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../source/gcc-8.5.0/configure --prefix=/local/software/gcc/8.5.0/.]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.5.0 (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=600' '-D' '__CUDA_ARCH_LIST__=520 600 610 750 860' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-12_CMakeCUDACompilerABI.compute_60.cpp1.ii' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/cc1plus -E -quiet -v -I /local/software/cuda/11.7/bin/../targets/x86_64-linux/include -iprefix /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/ -D_GNU_SOURCE -D __CUDA_ARCH__=600 -D __CUDA_ARCH_LIST__=520 600 610 750 860 -D CUDA_DOUBLE_MATH_FUNCTIONS -D __CUDACC__ -D __NVCC__ -D __CUDACC_VER_MAJOR__=11 -D __CUDACC_VER_MINOR__=7 -D __CUDACC_VER_BUILD__=64 -D __CUDA_API_VER_MAJOR__=11 -D __CUDA_API_VER_MINOR__=7 -D __NVCC_DIAG_PRAGMA_SUPPORT__=1 -include cuda_runtime.h /mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/share/cmake-3.22/Modules/CMakeCUDACompilerABI.cu -o /tmp/tmpxft_000378eb_00000000-12_CMakeCUDACompilerABI.compute_60.cpp1.ii -m64 -mtune=generic -march=x86-64]
+  ignore line: [ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include"]
+  ignore line: [ignoring nonexistent directory "/usr/local/include"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [ignoring duplicate directory "/local/software/cuda/11.7/targets/x86_64-linux/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /local/software/cuda/11.7/bin/../targets/x86_64-linux/include]
+  ignore line: [ .]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../include]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [COMPILER_PATH=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/]
+  ignore line: [LIBRARY_PATH=/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=600' '-D' '__CUDA_ARCH_LIST__=520 600 610 750 860' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-12_CMakeCUDACompilerABI.compute_60.cpp1.ii' '-mtune=generic' '-march=x86-64']
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=gcc]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../source/gcc-8.5.0/configure --prefix=/local/software/gcc/8.5.0/.]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.5.0 (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=610' '-D' '__CUDA_ARCH_LIST__=520 600 610 750 860' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-13_CMakeCUDACompilerABI.compute_61.cpp1.ii' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/cc1plus -E -quiet -v -I /local/software/cuda/11.7/bin/../targets/x86_64-linux/include -iprefix /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/ -D_GNU_SOURCE -D __CUDA_ARCH__=610 -D __CUDA_ARCH_LIST__=520 600 610 750 860 -D CUDA_DOUBLE_MATH_FUNCTIONS -D __CUDACC__ -D __NVCC__ -D __CUDACC_VER_MAJOR__=11 -D __CUDACC_VER_MINOR__=7 -D __CUDACC_VER_BUILD__=64 -D __CUDA_API_VER_MAJOR__=11 -D __CUDA_API_VER_MINOR__=7 -D __NVCC_DIAG_PRAGMA_SUPPORT__=1 -include cuda_runtime.h /mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/share/cmake-3.22/Modules/CMakeCUDACompilerABI.cu -o /tmp/tmpxft_000378eb_00000000-13_CMakeCUDACompilerABI.compute_61.cpp1.ii -m64 -mtune=generic -march=x86-64]
+  ignore line: [ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include"]
+  ignore line: [ignoring nonexistent directory "/usr/local/include"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [ignoring duplicate directory "/local/software/cuda/11.7/targets/x86_64-linux/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /local/software/cuda/11.7/bin/../targets/x86_64-linux/include]
+  ignore line: [ .]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../include]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [COMPILER_PATH=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/]
+  ignore line: [LIBRARY_PATH=/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=610' '-D' '__CUDA_ARCH_LIST__=520 600 610 750 860' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-13_CMakeCUDACompilerABI.compute_61.cpp1.ii' '-mtune=generic' '-march=x86-64']
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=gcc]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../source/gcc-8.5.0/configure --prefix=/local/software/gcc/8.5.0/.]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.5.0 (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=750' '-D' '__CUDA_ARCH_LIST__=520 600 610 750 860' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-14_CMakeCUDACompilerABI.compute_75.cpp1.ii' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/cc1plus -E -quiet -v -I /local/software/cuda/11.7/bin/../targets/x86_64-linux/include -iprefix /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/ -D_GNU_SOURCE -D __CUDA_ARCH__=750 -D __CUDA_ARCH_LIST__=520 600 610 750 860 -D CUDA_DOUBLE_MATH_FUNCTIONS -D __CUDACC__ -D __NVCC__ -D __CUDACC_VER_MAJOR__=11 -D __CUDACC_VER_MINOR__=7 -D __CUDACC_VER_BUILD__=64 -D __CUDA_API_VER_MAJOR__=11 -D __CUDA_API_VER_MINOR__=7 -D __NVCC_DIAG_PRAGMA_SUPPORT__=1 -include cuda_runtime.h /mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/share/cmake-3.22/Modules/CMakeCUDACompilerABI.cu -o /tmp/tmpxft_000378eb_00000000-14_CMakeCUDACompilerABI.compute_75.cpp1.ii -m64 -mtune=generic -march=x86-64]
+  ignore line: [ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include"]
+  ignore line: [ignoring nonexistent directory "/usr/local/include"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [ignoring duplicate directory "/local/software/cuda/11.7/targets/x86_64-linux/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /local/software/cuda/11.7/bin/../targets/x86_64-linux/include]
+  ignore line: [ .]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../include]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [COMPILER_PATH=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/]
+  ignore line: [LIBRARY_PATH=/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=750' '-D' '__CUDA_ARCH_LIST__=520 600 610 750 860' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-14_CMakeCUDACompilerABI.compute_75.cpp1.ii' '-mtune=generic' '-march=x86-64']
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=gcc]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../source/gcc-8.5.0/configure --prefix=/local/software/gcc/8.5.0/.]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.5.0 (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=860' '-D' '__CUDA_ARCH_LIST__=520 600 610 750 860' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-15_CMakeCUDACompilerABI.compute_86.cpp1.ii' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/cc1plus -E -quiet -v -I /local/software/cuda/11.7/bin/../targets/x86_64-linux/include -iprefix /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/ -D_GNU_SOURCE -D __CUDA_ARCH__=860 -D __CUDA_ARCH_LIST__=520 600 610 750 860 -D CUDA_DOUBLE_MATH_FUNCTIONS -D __CUDACC__ -D __NVCC__ -D __CUDACC_VER_MAJOR__=11 -D __CUDACC_VER_MINOR__=7 -D __CUDACC_VER_BUILD__=64 -D __CUDA_API_VER_MAJOR__=11 -D __CUDA_API_VER_MINOR__=7 -D __NVCC_DIAG_PRAGMA_SUPPORT__=1 -include cuda_runtime.h /mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/share/cmake-3.22/Modules/CMakeCUDACompilerABI.cu -o /tmp/tmpxft_000378eb_00000000-15_CMakeCUDACompilerABI.compute_86.cpp1.ii -m64 -mtune=generic -march=x86-64]
+  ignore line: [ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include"]
+  ignore line: [ignoring nonexistent directory "/usr/local/include"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [ignoring duplicate directory "/local/software/cuda/11.7/targets/x86_64-linux/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /local/software/cuda/11.7/bin/../targets/x86_64-linux/include]
+  ignore line: [ .]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../include]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [COMPILER_PATH=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/]
+  ignore line: [LIBRARY_PATH=/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=860' '-D' '__CUDA_ARCH_LIST__=520 600 610 750 860' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-15_CMakeCUDACompilerABI.compute_86.cpp1.ii' '-mtune=generic' '-march=x86-64']
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=gcc]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../source/gcc-8.5.0/configure --prefix=/local/software/gcc/8.5.0/.]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.5.0 (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH_LIST__=520 600 610 750 860' '-E' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-5_CMakeCUDACompilerABI.cpp4.ii' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/cc1plus -E -quiet -v -I /local/software/cuda/11.7/bin/../targets/x86_64-linux/include -iprefix /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/ -D_GNU_SOURCE -D __CUDA_ARCH_LIST__=520 600 610 750 860 -D __CUDACC__ -D __NVCC__ -D __CUDACC_VER_MAJOR__=11 -D __CUDACC_VER_MINOR__=7 -D __CUDACC_VER_BUILD__=64 -D __CUDA_API_VER_MAJOR__=11 -D __CUDA_API_VER_MINOR__=7 -D __NVCC_DIAG_PRAGMA_SUPPORT__=1 -include cuda_runtime.h /mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/share/cmake-3.22/Modules/CMakeCUDACompilerABI.cu -o /tmp/tmpxft_000378eb_00000000-5_CMakeCUDACompilerABI.cpp4.ii -m64 -mtune=generic -march=x86-64]
+  ignore line: [ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include"]
+  ignore line: [ignoring nonexistent directory "/usr/local/include"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [ignoring duplicate directory "/local/software/cuda/11.7/targets/x86_64-linux/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /local/software/cuda/11.7/bin/../targets/x86_64-linux/include]
+  ignore line: [ .]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../include]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [COMPILER_PATH=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/]
+  ignore line: [LIBRARY_PATH=/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH_LIST__=520 600 610 750 860' '-E' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-D' '__CUDACC_VER_MAJOR__=11' '-D' '__CUDACC_VER_MINOR__=7' '-D' '__CUDACC_VER_BUILD__=64' '-D' '__CUDA_API_VER_MAJOR__=11' '-D' '__CUDA_API_VER_MINOR__=7' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_000378eb_00000000-5_CMakeCUDACompilerABI.cpp4.ii' '-mtune=generic' '-march=x86-64']
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=gcc]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../source/gcc-8.5.0/configure --prefix=/local/software/gcc/8.5.0/.]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.5.0 (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=860' '-D' '__CUDA_ARCH_LIST__=520 600 610 750 860' '-c' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-m64' '-o' 'CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/cc1plus -quiet -v -I /local/software/cuda/11.7/bin/../targets/x86_64-linux/include -iprefix /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/ -D_GNU_SOURCE -D __CUDA_ARCH__=860 -D __CUDA_ARCH_LIST__=520 600 610 750 860 -D CUDA_DOUBLE_MATH_FUNCTIONS /tmp/tmpxft_000378eb_00000000-6_CMakeCUDACompilerABI.compute_86.cudafe1.cpp -quiet -dumpbase tmpxft_000378eb_00000000-6_CMakeCUDACompilerABI.compute_86.cudafe1.cpp -m64 -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o -version -o /tmp/ccOZcXYI.s]
+  ignore line: [GNU C++14 (GCC) version 8.5.0 (x86_64-pc-linux-gnu)]
+  ignore line: [	compiled by GNU C version 8.5.0  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include"]
+  ignore line: [ignoring nonexistent directory "/usr/local/include"]
+  ignore line: [ignoring duplicate directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [ignoring duplicate directory "/local/software/cuda/11.7/targets/x86_64-linux/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /local/software/cuda/11.7/bin/../targets/x86_64-linux/include]
+  ignore line: [ .]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/x86_64-pc-linux-gnu]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../include/c++/8.5.0/backward]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed]
+  ignore line: [ /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/../../include]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C++14 (GCC) version 8.5.0 (x86_64-pc-linux-gnu)]
+  ignore line: [	compiled by GNU C version 8.5.0  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: be2ce6a69e49d5bd4f4088f0801685a0]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=860' '-D' '__CUDA_ARCH_LIST__=520 600 610 750 860' '-c' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-m64' '-o' 'CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o' '-mtune=generic' '-march=x86-64']
+  ignore line: [ as -v -I /local/software/cuda/11.7/bin/../targets/x86_64-linux/include --64 -o CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o /tmp/ccOZcXYI.s]
+  ignore line: [GNU assembler version 2.27 (x86_64-redhat-linux) using BFD version version 2.27-43.base.el7]
+  ignore line: [COMPILER_PATH=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/]
+  ignore line: [LIBRARY_PATH=/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=860' '-D' '__CUDA_ARCH_LIST__=520 600 610 750 860' '-c' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-v' '-I' '/local/software/cuda/11.7/bin/../targets/x86_64-linux/include' '-m64' '-o' 'CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o' '-mtune=generic' '-march=x86-64']
+  ignore line: [Linking CUDA executable cmTC_81f4b]
+  ignore line: [/mainfs/local/software/cmake/3.22.0/cmake-3.22.0-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_81f4b.dir/link.txt --verbose=1]
+  ignore line: [/local/software/gcc/8.5.0/bin/g++  -v CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o -o cmTC_81f4b  -lcudadevrt -lcudart_static -lrt -lpthread -ldl  -L"/local/software/cuda/11.7/targets/x86_64-linux/lib/stubs" -L"/local/software/cuda/11.7/targets/x86_64-linux/lib"]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/local/software/gcc/8.5.0/bin/g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/lto-wrapper]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../source/gcc-8.5.0/configure --prefix=/local/software/gcc/8.5.0/.]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.5.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/]
+  ignore line: [LIBRARY_PATH=/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_81f4b' '-L/local/software/cuda/11.7/targets/x86_64-linux/lib/stubs' '-L/local/software/cuda/11.7/targets/x86_64-linux/lib' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/collect2 -plugin /mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/liblto_plugin.so -plugin-opt=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cc7aaQaW.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_81f4b /lib/../lib64/crt1.o /lib/../lib64/crti.o /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtbegin.o -L/local/software/cuda/11.7/targets/x86_64-linux/lib/stubs -L/local/software/cuda/11.7/targets/x86_64-linux/lib -L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0 -L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc -L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../.. CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o -lcudadevrt -lcudart_static -lrt -lpthread -ldl -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtend.o /lib/../lib64/crtn.o]
+    arg [/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/mainfs/local/software/gcc/8.5.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.5.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cc7aaQaW.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_81f4b] ==> ignore
+    arg [/lib/../lib64/crt1.o] ==> obj [/lib/../lib64/crt1.o]
+    arg [/lib/../lib64/crti.o] ==> obj [/lib/../lib64/crti.o]
+    arg [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtbegin.o] ==> obj [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtbegin.o]
+    arg [-L/local/software/cuda/11.7/targets/x86_64-linux/lib/stubs] ==> dir [/local/software/cuda/11.7/targets/x86_64-linux/lib/stubs]
+    arg [-L/local/software/cuda/11.7/targets/x86_64-linux/lib] ==> dir [/local/software/cuda/11.7/targets/x86_64-linux/lib]
+    arg [-L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0] ==> dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0]
+    arg [-L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc] ==> dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc]
+    arg [-L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64] ==> dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../..] ==> dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../..]
+    arg [CMakeFiles/cmTC_81f4b.dir/CMakeCUDACompilerABI.cu.o] ==> ignore
+    arg [-lcudadevrt] ==> lib [cudadevrt]
+    arg [-lcudart_static] ==> lib [cudart_static]
+    arg [-lrt] ==> lib [rt]
+    arg [-lpthread] ==> lib [pthread]
+    arg [-ldl] ==> lib [dl]
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtend.o] ==> obj [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtend.o]
+    arg [/lib/../lib64/crtn.o] ==> obj [/lib/../lib64/crtn.o]
+  collapse obj [/lib/../lib64/crt1.o] ==> [/lib64/crt1.o]
+  collapse obj [/lib/../lib64/crti.o] ==> [/lib64/crti.o]
+  collapse obj [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtbegin.o] ==> [/mainfs/local/software/gcc/8.5.0/lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtbegin.o]
+  collapse obj [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtend.o] ==> [/mainfs/local/software/gcc/8.5.0/lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtend.o]
+  collapse obj [/lib/../lib64/crtn.o] ==> [/lib64/crtn.o]
+  collapse library dir [/local/software/cuda/11.7/targets/x86_64-linux/lib/stubs] ==> [/local/software/cuda/11.7/targets/x86_64-linux/lib/stubs]
+  collapse library dir [/local/software/cuda/11.7/targets/x86_64-linux/lib] ==> [/local/software/cuda/11.7/targets/x86_64-linux/lib]
+  collapse library dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0] ==> [/mainfs/local/software/gcc/8.5.0/lib/gcc/x86_64-pc-linux-gnu/8.5.0]
+  collapse library dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc] ==> [/mainfs/local/software/gcc/8.5.0/lib/gcc]
+  collapse library dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64] ==> [/mainfs/local/software/gcc/8.5.0/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/mainfs/local/software/gcc/8.5.0/bin/../lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../..] ==> [/mainfs/local/software/gcc/8.5.0/lib]
+  implicit libs: [cudadevrt;cudart_static;rt;pthread;dl;stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit objs: [/lib64/crt1.o;/lib64/crti.o;/mainfs/local/software/gcc/8.5.0/lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtbegin.o;/mainfs/local/software/gcc/8.5.0/lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtend.o;/lib64/crtn.o]
+  implicit dirs: [/local/software/cuda/11.7/targets/x86_64-linux/lib/stubs;/local/software/cuda/11.7/targets/x86_64-linux/lib;/mainfs/local/software/gcc/8.5.0/lib/gcc/x86_64-pc-linux-gnu/8.5.0;/mainfs/local/software/gcc/8.5.0/lib/gcc;/mainfs/local/software/gcc/8.5.0/lib64;/lib64;/usr/lib64;/mainfs/local/software/gcc/8.5.0/lib]
+  implicit fwks: []
+
+

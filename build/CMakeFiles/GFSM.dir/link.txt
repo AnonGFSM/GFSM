@@ -1,0 +1,1 @@
+/local/software/gcc/8.5.0/bin/g++ CMakeFiles/GFSM.dir/main.cu.o CMakeFiles/GFSM.dir/ccsr.cpp.o CMakeFiles/GFSM.dir/HnGPU.cu.o CMakeFiles/GFSM.dir/cmake_device_link.o -o GFSM   -L/local/software/cuda/11.7/targets/x86_64-linux/lib/stubs  -L/local/software/cuda/11.7/targets/x86_64-linux/lib  -lcudadevrt -lcudart_static -lrt -lpthread -ldl 
