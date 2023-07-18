@@ -327,19 +327,9 @@ CCSR::CCSRGraph txtGSI(std::string loc, bool directed, CCSR::CCSRStagger* stagge
 		exit(ERR_MISSING_DATA);
 	}
 
-	////We assume vertex data is in order from 0 -> count-1, if not throw error
-	//if (vertexSeen != verticeCount-1){
-	//	exit(ERR_NONLINEAR_DATA);
-	//}
-
-
-
-	//std::vector<CCSRSegment>** allocations = (std::vector<CCSRSegment>**) malloc(sizeof(std::vector<CCSRSegment>*) * verticeCount);
-
 	
 	OrderPair* orderings = (OrderPair*)malloc(sizeof(OrderPair) * verticeCount);
 
-	//uint32_t preSize = 2*((edgeCount / verticeCount) + 1);
 	uint32_t preSize = ((edgeCount / verticeCount) + 1);
 
 	auto start2 = std::chrono::steady_clock::now();
@@ -347,16 +337,6 @@ CCSR::CCSRGraph txtGSI(std::string loc, bool directed, CCSR::CCSRStagger* stagge
 	auto end2 = std::chrono::steady_clock::now();
 	std::chrono::duration<double> elapsed_seconds2 = end2 - start2;
 	info_printf("\nAlloc Time: %f s\n", elapsed_seconds2.count());
-	/*
-	auto start2 = std::chrono::steady_clock::now();
-	for (uint32_t i = 0; i < verticeCount; i++) {
-		allocations[i] = new std::vector<CCSRSegment>(preSize);
-		allocations[i]->clear();
-	}
-
-	auto end2 = std::chrono::steady_clock::now();
-	std::chrono::duration<double> elapsed_seconds2 = end2 - start2;
-	std::cout << "\nAlloc Time: " << elapsed_seconds2.count() << "s\n";*/
 
 	auto startV = std::chrono::steady_clock::now();
 
@@ -370,7 +350,7 @@ CCSR::CCSRGraph txtGSI(std::string loc, bool directed, CCSR::CCSRStagger* stagge
 		if (pState == end_p) {
 			break;
 		}
-		//allocations[values[0]]->push_back((values[1] & CCSRIndex(CCSRVertSize)) | (values[2] << CCSRVertSize));
+
 		constexpr auto vertMask = CCSRIndex(CCSRVertSize);
 		allocations[values[0]] << ((values[1] & vertMask) | (values[2] << CCSRVertSize));
 	}
@@ -386,10 +366,7 @@ CCSR::CCSRGraph txtGSI(std::string loc, bool directed, CCSR::CCSRStagger* stagge
 		if (row.size) {
 			allocationSize += row.size + 1;
 		}
-		//if (!std::is_sorted(vec->begin(), vec->begin() + vec->size(), CCSR::nodeCompare)) { //Redundant and slow
-		//	std::sort(vec->begin(), vec->begin() + vec->size(), CCSR::nodeCompare);
-		//}
-		//
+
 		maxLen = std::max(maxLen, row.size);
 		orderings[i] = { i, (uint32_t)row.size };
 	}
@@ -428,7 +405,6 @@ CCSR::CCSRGraph txtGSI(std::string loc, bool directed, CCSR::CCSRStagger* stagge
 		inverseVerticeLocs[i] = currentVertex;
 		if (vSize != 0) {
 			*ccsrWrite = vSize;
-			//memcpy(ccsrWrite+1, &((*vec)[0]), sizeof(CCSRSegment)* vSize);
 			allocations.copy(ccsrWrite + 1, row);
 			staggers[vSize-1] += vSize + 1;
 			degreeCounts[vSize - 1]++;
@@ -450,17 +426,12 @@ CCSR::CCSRGraph txtGSI(std::string loc, bool directed, CCSR::CCSRStagger* stagge
 		staggersInfo[i].normOffset = staggersInfo[i + 1].normOffset + degreeCounts[i + 1];
 	}
 
-	//printf("\nDebug %i:", actualSize);
-	//for (uint32_t i = 0; i < maxLen; i++) {
-	//	printf("\n%lu: offset: %lu, normoffset: %lu, stagger: %lu, degree counts: %lu", i, staggersInfo[i].offset, staggersInfo[i].normOffset, staggers[i], degreeCounts[i]);
-	//}
-
 	auto startM = std::chrono::steady_clock::now();
 
 	for (uint32_t i = 0; i < allocationSize; i++) {
 		uint32_t value = ccsrData[i];
 		uint32_t rel = value & CCSRRelation(CCSRRelSize);
-		if (rel) { //Gonna assume that valency never greater than vertex size, probs should put a guard somewhere
+		if (rel) { //TODO: Gonna assume that valency never greater than vertex size, probs should put a guard somewhere
 			constexpr auto vertMask = CCSRIndex(CCSRVertSize);
 			uint32_t vertex = verticeLocs[value & vertMask];
 			ccsrData[i] = vertex | rel;
@@ -478,6 +449,8 @@ CCSR::CCSRGraph txtGSI(std::string loc, bool directed, CCSR::CCSRStagger* stagge
 	for (uint32_t i = 0; i < allocationSize; i += len + 1) {
 		if (len = ccsrData[i]) {
 			CCSRSegment* row = &ccsrData[i] + 1;
+
+			//TODO: Safety we can enable but is slower!
 			//CCSR::insNodeSort(row, row + len, temp);
 			if (!std::is_sorted(row, row + len, CCSR::nodeCompare)) {
 				std::sort(row, row + len, CCSR::nodeCompare);
@@ -497,11 +470,6 @@ CCSR::CCSRGraph txtGSI(std::string loc, bool directed, CCSR::CCSRStagger* stagge
 
 
 	CCSR::CCSRGraph graph{ ccsrData, verticeLocs, inverseVerticeLocs, verticeCount, allocationSize };
-
-	//printf("\n Staggers Generated: \n");
-	//for (uint32_t i = 0; i < maxLen; i++) {
-	//	printf("%lu, ", staggers[i]);
-	//}
 
 	auto end = std::chrono::steady_clock::now();
 	std::chrono::duration<double> elapsed_seconds = end - start;

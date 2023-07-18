@@ -35,7 +35,6 @@ namespace CCSR {
 		for (int i = 0; i < len; i++) {
 			begin[i] = temp[i];
 		}
-		//memcpy(begin, temp, len * sizeof(CCSRSegment));
 	}
 
 
@@ -65,64 +64,11 @@ namespace CCSR {
 		for (auto it = begin; it != end; it++)
 		{
 			auto const insertion_point = nodeUpperBound(begin, it, *it);
-			//auto const insertion_point = std::upper_bound(begin, it, *it, nodeCompare);
 
 			// Shifting the unsorted part
-			//std::rotate(insertion_point, it, it + 1);
 			rotateNodes(insertion_point, it, it + 1, temp);
 		}
 	}
-
-//Horrible Unwrapped Badness
-
-/*
-#define cCHECK(l, r) nodeCompare(begin[l], begin[r])
-#define initArray(i0, i1, i2, i3) CCSRSegment arr [] = { begin[i0], begin[i1], begin[i2], begin[i3] }; memcpy(begin, arr, sizeof(arr));
-
-	void nodeSort(CCSRSegment* begin, CCSRSegment* end) {
-		switch (int len = end - begin) {
-			case 4:
-				if (cCHECK(0, 1)) {
-					if (cCHECK(1, 2)) {
-						if (cCHECK(2, 3)) {
-							initArray(0, 1, 2, 3);
-						}
-						else if (cNodeCompare(begin + 1, begin + 3, len, 4, nodeCompare)) {
-
-						}
-						else if (cNodeCompare(begin, begin + 2, len, 4, nodeCompare)) {
-
-						}
-						else {
-
-						}
-					} 
-					else if (cNodeCompare(begin, begin + 2, len, 4, nodeCompare)) {
-
-					}
-					else {
-
-					}
-				}
-				else {
-					if (cNodeCompare(begin, begin + 2, len, 4, nodeCompare)) {
-
-					}
-					else if (cNodeCompare(begin + 1, begin + 2, len, 4, nodeCompare)) {
-
-					}
-					else {
-
-					}
-				}
-				return;
-			case 3:
-			case 2:
-			case 1:
-		}
-		std::sort(begin, end, nodeCompare);
-	}
-*/
 	bool intDesc(int i, int i2) {
 		return i > i2;
 	}
@@ -156,13 +102,6 @@ namespace CCSR {
 			offset += graph.segments[offset] + 1;
 		}
 
-		//graph.verticeLocs[depth];
-
-		//printf("\nOld: ");
-		//for (int i = 0; i < graph.count; i++) {
-		//	printf("%i, ", mappingData[i]);
-		//}
-
 		uint32_t relativeDepth;
 		bool found = false;
 
@@ -178,13 +117,8 @@ namespace CCSR {
 			
 		}
 
-		//printf("\nNew: ");
-		//for (int i = 0; i < graph.count; i++) {
-		//	printf("%i, ", mappingData[i]);
-		//}
-
+		//Failed as couldn't traverse the graph! (i.e. disconnected query)
 		if (!found) {
-		//	printf("\n Error: Could not fully traverse Query!");
 			exit(1);
 		}
 
@@ -226,21 +160,9 @@ namespace CCSR {
 			}
 
 		}
-
-
-		//printf("\nTest Data");
-
-		//for (int i = 0; i < numOfReqs; i++) {
-		//	printf("(%u, %u),", reqs[i], rels[i]);
-		//}
 	
 		if (numOfReqs) {
 			std::sort(reqRels, reqRels + numOfReqs, reqRelCompare);
-
-			//printf("\nReq Order: ");
-			//for (int i = 0; i < numOfReqs; i++) {
-			//	printf("%u, ", reqs[i]);
-			//}
 
 			requirements[reqOffset] = reqRels[0].req;
 			requirements[reqOffset + 1] = reqRels[0].rel;
@@ -291,6 +213,7 @@ namespace CCSR {
 
 	}
 
+//TODO: Remove this!
 	void check(CCSRGraph graph) {
 		for (int i = 0; i < graph.size; i++) {
 			if (graph.segments[i] && !(graph.segments[graph.segments[i] & CCSRIndex(CCSRVertSize)])) {

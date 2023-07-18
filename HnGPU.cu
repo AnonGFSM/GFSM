@@ -49,6 +49,8 @@ namespace HnGPU {
     }
 
     __device__ void updateHeader(uint32_t* solutionHeader) {
+        
+        //TODO: This should use volatiles not atomicAdd to ignore cached result (Issue on Turing Codegen)
         solutionHeader[HNFUNC_OFFSET] = atomicAdd(&solutionHeader[HNFUNC_NEWOFFSET], 0);
         solutionHeader[HNFUNC_COUNT] = atomicAdd(&solutionHeader[HNFUNC_NEWCOUNT], 0);
     }
@@ -140,15 +142,6 @@ namespace HnGPU {
             }
 #endif
 
-#ifdef GPUDEBUG
-            //if (ix < solutionHeader[HNFUNC_COUNT] - 1) {
-            //    uint32_t dif = functionDegrees[ix];
-            //    if (dif != vSize && ix < 100) {
-            //        printf("\nWrong Degree %i %i", dif, vSize);
-            //    }
-            //}
-#endif
-
             vertexEdge++;
             uint32_t fns;
 
@@ -159,10 +152,6 @@ namespace HnGPU {
 
                 fnNew++;
                 vertexEdge++;
-            }
-
-            if (fns == 0) {
-                //printf("\nFn Found %lu", fn.mapping);
             }
 
             if (ix == solutionHeader[HNFUNC_COUNT] - 1) {
@@ -221,21 +210,9 @@ namespace HnGPU {
                 }
             }
 
-
-
             fn = cFn;
 
-            /*
-            if (ix == 37) {
-                printf("\n %i", fn->mapping);
-                for (uint32_t i2 = 0; codomainEdges[fn->mapping + i2]; i2++) {
-                    printf(" {%i}", codomainEdges[fn->mapping + i2]);
-                }
-            }*/
-
             uint32_t foundLocs = numOfReqs;
-
-            //Remember to flip ordering of preprocess (IT IS FLIPPED COMPARED TO ORIGINAL!)
 
             for (uint32_t i = 0; i < numOfReqs * 2; i += 2) {
                 uint32_t reqDist = requirements[i + HNREQS_DIST + reqOffset];
@@ -313,7 +290,6 @@ namespace HnGPU {
 
             if (ix == solutionHeader[HNFUNC_COUNT] - 1) {
                 solutionHeader[HNFUNC_NEWCOUNT] = functOffsets[ix] + (fn.mapping != -1);
-                //printf("\nNew Func Count %i -> %i (%i)", solutionHeader[HNFUNC_COUNT], functOffsets[ix] + (fn.mapping != -1), solutionHeader[HNFUNC_NEWCOUNT]);
             }
         }
 
@@ -395,8 +371,6 @@ namespace HnGPU {
 
         if (cudaSuccess != hnScan(scanBfr, scanBfrTemp, SCAN_LIMIT * sizeof(int), functCounts, solutionHeader, SCAN_LIMIT)) return true;
 
-        //printf("\nHnScan");
-
         blockCount = getBlockCount(solutionHeader[HNFUNC_COUNT], HBLOCKSIZE);
 
         if (batchOffset) {
@@ -405,10 +379,6 @@ namespace HnGPU {
                 debug_printf("\nBatch Overflow scan: %u, count: %u, offset: %u, batchOffset: %u", scanBfr[funcCount - 1], functCounts[funcCount - 1], solutionHeader[HNFUNC_OFFSET], batchOffset);
                 return true;
             }
-        }
-
-        if (depth == 0) {
-            //return false;
         }
 
         hnRemove << < blockCount, HBLOCKSIZE >> > (functions, bBfrFunctions, functionDegrees, bBfrFunctionDegrees, solutionHeader, scanBfr, batchOffset);
@@ -421,11 +391,10 @@ namespace HnGPU {
 
         pcsv_printf("HnStep: %u (%u),", solutionHeader[HNFUNC_COUNT], depth);
 
+        //TODO: Implement at some point, it doesn't work! Should help accelerate certain workloads
         //if (cudaSuccess != hnSort(scanBfr, scanBfrTemp, MAXSCANSIZE * sizeof(int), functionDegrees, scanBfr, solutionHeader)) return true;
 
         if (cudaSuccess != hnScan(scanBfr, scanBfrTemp, SCAN_LIMIT * sizeof(int), functionDegrees, solutionHeader, SCAN_LIMIT)) return true;
-
-        //printf("\nHnScan");
 
         return false;
     }
@@ -523,17 +492,13 @@ namespace HnGPU {
                             pSize = funcCount - pF;
                         }
 
-                        //printf("\npSize %lu pC %lu", pSize, parentCount);
-
-                        //Safety
                         const uint32_t safety = 4;
-                        //debug_printf("\nFuncs %lu", newFuncCount);
+
                         for (uint32_t i = 0; i < safety; i++) {
-                            //printf("\n%lu Compare %lu to %lu", scanBfr[pF + pSize - 1], scanBfr[pF + pSize - 1] - scanBfr[pF], space - newFuncCount);
                             if (scanBfr[pF + pSize - 1] == 0) {
-                                //printf("\nBROKEN Compare, %lu, %lu", scanBfr[pF + pSize - 1], scanBfr[pF]);
                                 return;
                             }
+
                             if (scanBfr[pF+ pSize-1] - scanBfr[pF] > space - newFuncCount) {
                                 pSize /= 2;
                             }
@@ -541,8 +506,7 @@ namespace HnGPU {
                                 break;
                             }
 
-                            if (i == safety - 1 || pSize == 0) {
-                                //printf("\nBatch too large");
+                            if (i == safety - 1 || pSize == 0) { //This should be moved above
                                 return;
                             }
                         }
@@ -550,10 +514,7 @@ namespace HnGPU {
 
                         uint32_t expectedDif = scanBfr[pF + pSize - 1] - scanBfr[pF];
 
-                        //printf("\npSize %lu degTailSize %lu (%lu) expectedDif %lu", pSize, scanBfr[pF + pSize - 1] - scanBfr[pF], scanBfr[pF + pSize - 1] + functionDegrees[pF + pSize - 1] - scanBfr[pF], expectedDif);
-
                         solutionHeader[HNFUNC_COUNT] = pSize;
-
 
                         cudaMemcpyAsync(scanBfrBack, scanBfr + pF, pSize * sizeof(uint32_t), cudaMemcpyDeviceToDevice);
                         if (filteredCandidates) {
@@ -561,15 +522,14 @@ namespace HnGPU {
                             hnRem << <blockCount, HBLOCKSIZE >> > (scanBfrBack, filteredCandidates, solutionHeader[HNFUNC_COUNT]);
                             hnDeg << <blockCount, HBLOCKSIZE >> > (functions, codomainEdges, functionDegrees, solutionHeader, depth-1, requirementHeader[HNREQS_H_FIRSTQVERTEX + (depth+1)*3]);
                         }
+
                         if(pF + pSize < funcCount)
                             filteredCandidates = scanBfr[pF + pSize];
-                        cudaDeviceSynchronize();
+
+                        if (cudaDeviceSynchronize())
+                            return; //This will likely never return.. Grid will exit (Crash) before it hits this
 
                         if (scanBfrBack[pSize - 1] != expectedDif) {
-                            //printf("\nCorrupted Data %lu != %lu", scanBfrBack[pSize - 1], expectedDif);
-                            for (int i = 0; i < 8; i++) {
-                                //printf("\n%lu,", scanBfrBack[pSize - 1 - i]);
-                            }
                             __trap();
                         }
 
@@ -590,7 +550,7 @@ namespace HnGPU {
                             csv_printf("Loop failure %i,", depth);
                             return;
                         }
-                        //printf("\nNew Funcs: %lu", solutionHeader[HNFUNC_COUNT]);
+
                         newFuncCount += solutionHeader[HNFUNC_COUNT];
 
                         pcsv_printf("HnBatch: %u (+ %u),", newFuncCount, solutionHeader[HNFUNC_COUNT]);
@@ -644,10 +604,6 @@ namespace HnGPU {
             if (volatile int count = solutionHeader[HNFUNC_COUNT] == 0) {
                 return;
             }
-
-            if (depth == 0) {
-                //return;
-            }
         }
 
     }
@@ -661,7 +617,6 @@ namespace HnGPU {
         uint32_t* fInfo = &functionInfo[ix * querySize];
 
 
-        //return;
         if (ix < functionCount) {
             HnFunction function = functions[ix + functionOffset];
             for (uint32_t i = 0; i < querySize; i++) {
@@ -693,7 +648,6 @@ namespace HnSetup {
 
         uint32_t* requirements, * requirementHeader;
 
-        //print(ccsrQuery);
         int32_t* mappingData;
 
         uint32_t maxValencyQuery = preProcessQuery(ccsrQuery, &requirements, &requirementHeader, &mappingData);
@@ -703,13 +657,6 @@ namespace HnSetup {
 
         HnFunction* solutions;
         uint32_t* solutionHeader;
-
-
-        //printf("\nTest2 %i", dataStagger.len);
-
-        //for (int i = 0; i < dataStagger.len; i++) {
-            //printf("\nTesting %i", dataStagger.staggers[i]);
-        //}
 
         gpuLaunch(ccsrQuery, ccsrData, dataStagger,
             requirements, requirementHeader,
@@ -724,14 +671,6 @@ namespace HnSetup {
 
 
         return NULL;
-
-        //free(queryMappings);
-        //free(dataMappings);
-        //free(solutions);
-        //free(ccsrQuery.segments);
-        //free(ccsrData.segments);
-        //free(requirements);
-        //free(requirementHeader);
     }
 
     __host__ uint32_t preProcessQuery(CCSR::CCSRGraph query, uint32_t** requirements, uint32_t** requirementHeader, int32_t** mappingData) {
@@ -754,20 +693,11 @@ namespace HnSetup {
             }
         }
         
-        //Set Vertex 0 to seen
         (*mappingData)[loc] = 0;
-        //printf("\nTest ");
-        //for (int i = 0; i < query.count; i++) {
-        //    printf("%i, ", (*mappingData)[i]);
-        //}
 
         for (int depth = 0; depth < query.count; depth++) {
 
             CCSR::genereateCCSRRequirements(query, *requirements, *requirementHeader, maxValency, depth, *mappingData);
-            //printf("\nTest ");
-            //for (int i = 0; i < query.count; i++) {
-            //    printf("%i, ", (*mappingData)[i]);
-            //}
         }
 
 
@@ -782,49 +712,11 @@ namespace HnSetup {
             }
         }
 
-        /*
-        printf("\n");
-        for (int i = 0; i < query.count; i++) {
-            printf("%i, ", query.invVerticeLocs[i]);
-        }
-
-        printf("\n");
-        for (int i = 0; i < query.count; i++) {
-        	printf("%i, ", (*mappingData)[i]);
-        }
-
-        printf("\n");
-        for (int i = 0; i < query.count; i++) {
-            printf("%i, ", orderingData[i]);
-        }
-
-        for (int i = 0; i < query.count; i++) {
-            tempMappingData[i] = query.invVerticeLocs[orderingData[i]];
-        }*/
-
         memcpy(*mappingData, tempMappingData, sizeof(uint32_t) * query.count);
-
-        //printf("\n");
-        //for (int i = 0; i < query.count; i++) {
-        //    printf("%i, ", (*mappingData)[i]);
-        //}
 
         delete [] tempMappingData;
         delete [] orderingData;
 
-        //(*requirements)[4] = 1;
-        //(*requirements)[8] = 1;
-        //(*requirements)[12] = 1;
-        //(*requirements)[16] = 1;
-
-        //(*requirementHeader)[11] = 1;
-        //(*requirementHeader)[14] = 1;
-
-        /* Requirement Header Usage
-        * requirementHeader[0] = Number Of Requirements
-        * requirementHeader[1] = Requirements Index
-        * requirementHeader[2] = First Query Vertex Depth
-        */
 #ifdef QUERYDATAPRINT
         info_printf("\nMaxValency %i, Query Height %i: ", maxValency, query.count);
 
@@ -842,7 +734,6 @@ namespace HnSetup {
 
         for (uint32_t i = 0; i < maxValency * query.count; i++) {
             if ((*requirements)[i * 2] > query.count) {
-                //printf("\nWe broke!");
                 pcsv_printf("Precompiler Failure: Query Gen,", 0);
                 exit(1);
             }
@@ -864,6 +755,7 @@ namespace HnSetup {
     HnFunction* frontBfr, * backBfr;
     uint32_t* functCountsBfr, * scanBfr, * scanBfrBack, * scanBfrTemp,  * functionDegrees, * bBfrFunctionDegrees;
 
+    //Exists to flush queue and force early malloc (on Ampere Devices). Not required on Turing
     __global__ void dummy() {
 
     }
@@ -925,11 +817,6 @@ namespace HnSetup {
 
         cudaMemcpyAsync(queryMappingDataGPU, mappingData, sizeof(int32_t) * query.count, cudaMemcpyHostToDevice);
         cudaMemcpyAsync(invDataVerticeLocsGPU, data.invVerticeLocs, sizeof(uint32_t) * data.count, cudaMemcpyHostToDevice);
-
-        for (uint32_t i = 0; i < 9; i++) {
-            //printf("\nTest %lu %lu", dataStagger.staggersInfo[i].offset, dataStagger.staggersInfo[i].normOffset);
-        }
-
         cudaMemcpyAsync(staggersInfoGPU, dataStagger.staggersInfo, sizeof(CCSR::StaggerInfo) * maxValencyData, cudaMemcpyHostToDevice);
 
         cudaStatus = cudaDeviceSynchronize();
@@ -952,19 +839,6 @@ namespace HnSetup {
 
         *solutionCPU = (HnFunction*)malloc(sizeof(HnFunction) * SOLN_LIMIT);
         *solutionHeaderCPU = (uint32_t*)malloc(sizeof(uint32_t) * 6);
-
-        /*
-        cudaEvent_t start, stop;
-
-        float elapsedTime = 0.0f;
-
-        auto startC = std::chrono::steady_clock::now();
-
-        cudaEventCreate(&start);
-        cudaEventCreate(&stop);
-        cudaEventRecord(start, 0);*/
-
-        //Launch Solve
 
         info_printf("\nSolve Kernel Start:", 0);
 
@@ -993,26 +867,10 @@ namespace HnSetup {
 
         cudaMemcpy(*solutionHeaderCPU, solutionHeader, sizeof(uint32_t) * 6, cudaMemcpyDeviceToHost);
 
-#ifdef FINGERPRINTING        
-        std::string frontBfrSum = checkSumCuda(frontBfr + (*solutionHeaderCPU)[HNFUNC_OFFSET], sizeof(HnFunction) * (*solutionHeaderCPU)[HNFUNC_COUNT]);
-        std::string backBfrSum = checkSumCuda(backBfr + (*solutionHeaderCPU)[HNFUNC_OFFSET], sizeof(HnFunction) * (*solutionHeaderCPU)[HNFUNC_COUNT]);
-        std::string scanBfrSum = checkSumCuda(scanBfr, sizeof(uint32_t) * (*solutionHeaderCPU)[HNFUNC_COUNT]);
-        std::string fullBfrSum = checkSumCuda(frontBfr, sizeof(HnFunction) * ((*solutionHeaderCPU)[HNFUNC_COUNT] + (*solutionHeaderCPU)[HNFUNC_OFFSET]));
-
-        debug_printf("\nSolution, Offset: %u, Count: %u", (*solutionHeaderCPU)[HNFUNC_OFFSET], (*solutionHeaderCPU)[HNFUNC_COUNT]);
-        debug_printf("\nFrontBfr: %s", frontBfrSum.c_str());
-        debug_printf("\nBackBfr: %s", backBfrSum.c_str());
-        debug_printf("\nScanBfr: %s", scanBfrSum.c_str());
-        debug_printf("\nFullFrontBfr: %s", fullBfrSum.c_str());
-#endif
-
         if ((*solutionHeaderCPU)[HNFUNC_COUNT] == DEBUGCOUNT) { // Memory Limit Failure
-            //csv_printf("%s", "Debug State,");
             if (MEM_LIMIT == MEMLIMIT) {
                 csv_printf("%s", "Reallocating,");
                 info_printf("%s", "\nReallocating");
-                //cudaStatus = cudaDeviceReset();
-                //if (cudaSuccess != cudaStatus) exit(cudaStatus);
 
                 cudaFree(queryGPU);
                 cudaFree(backBfr);
@@ -1042,7 +900,6 @@ namespace HnSetup {
                 end = std::chrono::steady_clock::now();
                 std::chrono::duration<double> elapsed_secondsR = end - start;
                 info_printf("\nReallocated GPU Time: %fs\n", elapsed_secondsR.count());
-                //csv_printf("%f,", elapsed_secondsR.count());
             }
             return;
         }
@@ -1051,22 +908,9 @@ namespace HnSetup {
                 csv_printf("%s", "n/a,n/a,");
             }
         }
-        /*
-        cudaEventRecord(stop, 0);
-        cudaEventSynchronize(stop);
-
-        cudaEventElapsedTime(&elapsedTime, start, stop);
-        std::cout << "\nTime Taken: " << elapsedTime << "ms" << std::endl;
-        */
         
         info_printf("\nFunction Count: %i", (*solutionHeaderCPU)[HNFUNC_COUNT]);
         csv_printf("%i,", (*solutionHeaderCPU)[HNFUNC_COUNT]);
-
-
-        //uint32_t memcpySize = (*solutionHeaderCPU)[HNFUNC_COUNT] + (*solutionHeaderCPU)[HNFUNC_OFFSET];
-
-        //cudaMemcpy(*solutionCPU, frontBfr, sizeof(HnFunction) * memcpySize, cudaMemcpyDeviceToHost);
-        //dumpFunctions(*solutionCPU, memcpySize);
 
         cudaFree(queryGPU);
         cudaFree(backBfr);
@@ -1090,6 +934,10 @@ namespace HnSetup {
     
         int32_t blockCount = HnGPU::getBlockCount((*solutionHeaderCPU)[HNFUNC_COUNT], HBLOCKSIZE);
 
+        cudaStatus = cudaDeviceSynchronize();
+
+        start = std::chrono::steady_clock::now();
+
         HnGPU::hnWrite << <blockCount, HBLOCKSIZE >> > (dataGPU, frontBfr, functionInfoGPU,
             invDataVerticeLocsGPU, queryMappingDataGPU,
             staggersInfoGPU,
@@ -1099,11 +947,15 @@ namespace HnSetup {
         cudaStatus = cudaDeviceSynchronize();
         if (cudaSuccess != cudaStatus) cudaExit(cudaStatus);
 
+        end = std::chrono::steady_clock::now();
+        std::chrono::duration<double> elapsed_seconds5 = end - start;
+        info_printf("\nSolution Creation End Time: %fs\n", elapsed_seconds5.count());
+        csv_printf("%fs,", elapsed_seconds5.count());
+
         info_printf("\nhnWrite Completed", 0);
 
         uint32_t* functionInfo = (uint32_t*)malloc((*solutionHeaderCPU)[HNFUNC_COUNT] * query.count * sizeof(uint32_t));
-        //MappingPair* functionInfo;
-        //cudaHostAlloc(&functionInfo, (*solutionHeaderCPU)[HNFUNC_COUNT] * query.count * sizeof(MappingPair), cudaHostAllocPortable);
+
         cudaMemcpyAsync(functionInfo, functionInfoGPU, sizeof(uint32_t) * (*solutionHeaderCPU)[HNFUNC_COUNT] * query.count, cudaMemcpyDeviceToHost);
         cudaFreeAsync(frontBfr, 0);
         cudaFreeAsync(dataGPU, 0);
@@ -1115,14 +967,8 @@ namespace HnSetup {
 
         cudaStatus = cudaDeviceSynchronize();
         if (cudaSuccess != cudaStatus) cudaExit(cudaStatus);
-
-        end = std::chrono::steady_clock::now();
-        std::chrono::duration<double> elapsed_seconds5 = end - start;
-        info_printf("\nSolution Creation End Time: %fs\n", elapsed_seconds5.count());
-        csv_printf("%fs,", elapsed_seconds5.count());
-
-
-        //printFunctions(functionInfo, query.count, (*solutionHeaderCPU)[HNFUNC_COUNT]);
+        
+        //Commented out, uncomment this if you need output to file
         //functionsToFile(functionInfo, query.count, (*solutionHeaderCPU)[HNFUNC_COUNT]);
         //functionsToFilePretty(functionInfo, query.count, (*solutionHeaderCPU)[HNFUNC_COUNT]);
     }
@@ -1138,7 +984,7 @@ namespace HnSetup {
         }
     }
     
-    
+    //Return a file output (as binary)
     __host__ uint32_t functionsToFile(uint32_t* functionInfo, uint32_t width, uint32_t count) {
         std::ofstream os("output.fs", std::ofstream::out | std::ofstream::trunc | std::ios::binary);
 
@@ -1151,32 +997,7 @@ namespace HnSetup {
         return false;
     }
 
-    /*
-    __host__ uint32_t functionsToFile(uint32_t* functionInfo, uint32_t width, uint32_t count) {
-        std::ofstream os("output2.fs", std::ofstream::out | std::ofstream::trunc | std::ios::binary);
-
-        std::filebuf* inbuf = os.rdbuf();
-        char* buf = new char[sizeof(uint32_t) * (2 + count * width)];
-        inbuf->pubsetbuf(buf, sizeof(uint32_t) * (2 + count * width));
-
-        inbuf->sputn((char*)&count, sizeof(uint32_t));
-        inbuf->sputn((char*)&width, sizeof(uint32_t));
-        inbuf->sputn((char*)functionInfo, count * width * sizeof(uint32_t));
-        //uint32_t* intBuf = (uint32_t*)buf;
-        //intBuf[0] = count;
-        //intBuf[1] = width;
-
-        //std::memcpy(intBuf + 2, functionInfo, count * width * sizeof(uint32_t));
-
-        //delete[] buf;
-
-        //inbuf->pubseekoff(sizeof(uint32_t) * (2 + count * width), os.end);
-        //inbuf->pubsync();
-        inbuf->close();
-
-        return false;
-    }*/
-
+    //Return a readable output
     __host__ uint32_t functionsToFilePretty(uint32_t* functionInfo, uint32_t width, uint32_t count) {
         std::ofstream os("outputPretty.txt", std::ofstream::out | std::ofstream::trunc | std::ios::binary);
 
@@ -1193,195 +1014,4 @@ namespace HnSetup {
         os.close();
         return false;
     }
-}
-
-//Author: https://github.com/System-Glitch/SHA256
-
-
-SHA256::SHA256() : m_blocklen(0), m_bitlen(0) {
-    m_state[0] = 0x6a09e667;
-    m_state[1] = 0xbb67ae85;
-    m_state[2] = 0x3c6ef372;
-    m_state[3] = 0xa54ff53a;
-    m_state[4] = 0x510e527f;
-    m_state[5] = 0x9b05688c;
-    m_state[6] = 0x1f83d9ab;
-    m_state[7] = 0x5be0cd19;
-}
-
-void SHA256::update(const uint8_t* data, size_t length) {
-    for (size_t i = 0; i < length; i++) {
-        m_data[m_blocklen++] = data[i];
-        if (m_blocklen == 64) {
-            transform();
-
-            // End of the block
-            m_bitlen += 512;
-            m_blocklen = 0;
-        }
-    }
-}
-
-void SHA256::update(const std::string& data) {
-    update(reinterpret_cast<const uint8_t*> (data.c_str()), data.size());
-}
-
-uint8_t* SHA256::digest() {
-    uint8_t* hash = new uint8_t[32];
-
-    pad();
-    revert(hash);
-
-    return hash;
-}
-
-uint32_t SHA256::rotr(uint32_t x, uint32_t n) {
-    return (x >> n) | (x << (32 - n));
-}
-
-uint32_t SHA256::choose(uint32_t e, uint32_t f, uint32_t g) {
-    return (e & f) ^ (~e & g);
-}
-
-uint32_t SHA256::majority(uint32_t a, uint32_t b, uint32_t c) {
-    return (a & (b | c)) | (b & c);
-}
-
-uint32_t SHA256::sig0(uint32_t x) {
-    return SHA256::rotr(x, 7) ^ SHA256::rotr(x, 18) ^ (x >> 3);
-}
-
-uint32_t SHA256::sig1(uint32_t x) {
-    return SHA256::rotr(x, 17) ^ SHA256::rotr(x, 19) ^ (x >> 10);
-}
-
-
-static constexpr std::array<uint32_t, 64> K = {
-    0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,
-    0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,
-    0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,
-    0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,
-    0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,
-    0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,
-    0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,
-    0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,
-    0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,
-    0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,
-    0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,
-    0xd192e819,0xd6990624,0xf40e3585,0x106aa070,
-    0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,
-    0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,
-    0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,
-    0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2
-};
-
-void SHA256::transform() {
-    uint32_t maj, xorA, ch, xorE, sum, newA, newE, m[64];
-    uint32_t state[8];
-
-    for (uint8_t i = 0, j = 0; i < 16; i++, j += 4) { // Split data in 32 bit blocks for the 16 first words
-        m[i] = (m_data[j] << 24) | (m_data[j + 1] << 16) | (m_data[j + 2] << 8) | (m_data[j + 3]);
-    }
-
-    for (uint8_t k = 16; k < 64; k++) { // Remaining 48 blocks
-        m[k] = SHA256::sig1(m[k - 2]) + m[k - 7] + SHA256::sig0(m[k - 15]) + m[k - 16];
-    }
-
-    for (uint8_t i = 0; i < 8; i++) {
-        state[i] = m_state[i];
-    }
-
-    for (uint8_t i = 0; i < 64; i++) {
-        maj = SHA256::majority(state[0], state[1], state[2]);
-        xorA = SHA256::rotr(state[0], 2) ^ SHA256::rotr(state[0], 13) ^ SHA256::rotr(state[0], 22);
-
-        ch = choose(state[4], state[5], state[6]);
-
-        xorE = SHA256::rotr(state[4], 6) ^ SHA256::rotr(state[4], 11) ^ SHA256::rotr(state[4], 25);
-
-        sum = m[i] + K[i] + state[7] + ch + xorE;
-        newA = xorA + maj + sum;
-        newE = state[3] + sum;
-
-        state[7] = state[6];
-        state[6] = state[5];
-        state[5] = state[4];
-        state[4] = newE;
-        state[3] = state[2];
-        state[2] = state[1];
-        state[1] = state[0];
-        state[0] = newA;
-    }
-
-    for (uint8_t i = 0; i < 8; i++) {
-        m_state[i] += state[i];
-    }
-}
-
-void SHA256::pad() {
-
-    uint64_t i = m_blocklen;
-    uint8_t end = m_blocklen < 56 ? 56 : 64;
-
-    m_data[i++] = 0x80; // Append a bit 1
-    while (i < end) {
-        m_data[i++] = 0x00; // Pad with zeros
-    }
-
-    if (m_blocklen >= 56) {
-        transform();
-        memset(m_data, 0, 56);
-    }
-
-    // Append to the padding the total message's length in bits and transform.
-    m_bitlen += m_blocklen * 8;
-    m_data[63] = m_bitlen;
-    m_data[62] = m_bitlen >> 8;
-    m_data[61] = m_bitlen >> 16;
-    m_data[60] = m_bitlen >> 24;
-    m_data[59] = m_bitlen >> 32;
-    m_data[58] = m_bitlen >> 40;
-    m_data[57] = m_bitlen >> 48;
-    m_data[56] = m_bitlen >> 56;
-    transform();
-}
-
-void SHA256::revert(uint8_t* hash) {
-    // SHA uses big endian byte ordering
-    // Revert all bytes
-    for (uint8_t i = 0; i < 4; i++) {
-        for (uint8_t j = 0; j < 8; j++) {
-            hash[i + (j * 4)] = (m_state[j] >> (24 - i * 8)) & 0x000000ff;
-        }
-    }
-}
-
-std::string SHA256::toString(const uint8_t* digest) {
-    std::stringstream s;
-    s << std::setfill('0') << std::hex;
-
-    for (uint8_t i = 0; i < 32; i++) {
-        s << std::setw(2) << (unsigned int)digest[i];
-    }
-
-    return s.str();
-}
-
-std::string checkSumCuda(void* cudaBfr, size_t size) {
-#ifdef FINGERPRINTING
-    char* temp = new char[size] {};
-    cudaError_t error = cudaMemcpy(temp, cudaBfr, size, cudaMemcpyDeviceToHost);
-    if (error) {
-        cudaExit(error);
-    }
-    SHA256 sha;
-    sha.update((uint8_t*)temp, size);
-    uint8_t* digest = sha.digest();
-    std::string soln = SHA256::toString(digest);
-    delete[] digest;
-    delete[] temp;
-    return soln;
-#else
-    return std::string("null");
-#endif
 }
