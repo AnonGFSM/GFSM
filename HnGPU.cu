@@ -2,6 +2,7 @@
 #include "HnGPU.cuh"
 #include <chrono>
 
+//Pretty print the error type
 void cudaExit(cudaError_t error) {
     info_printf("\nCuda Error: %s", cudaGetErrorString(error));
     csv_printf("%s,", cudaGetErrorString(error));
@@ -12,6 +13,9 @@ namespace HnGPU {
 
     __device__ uint32_t debugSet = 0;
 
+    /*
+    * Used for returning Debug/assert statements without flooding logs
+    */
     enum DebugMessage {
         CorruptedData
     };
@@ -24,6 +28,9 @@ namespace HnGPU {
 #endif
     }
 
+    /*
+    * Check whether a requirement exists within a row of the CCSR
+    */
     __device__ bool reqExists(CCSRSegment* vertexEdge, uint32_t requiredRelation, int32_t requiredVertex, uint32_t len) {
 #ifdef SHORTREL
 
@@ -44,10 +51,18 @@ namespace HnGPU {
 #endif
     }
 
+    /*
+    * Convert a number to a valid block count of a given size 
+    * (i.e. 242 jobs would require 4 threadblocks of 64 threads to compute)
+    */
     __host__ __device__ int32_t getBlockCount(int globalRange, int localRange) {
         return (globalRange / localRange) + 1;
     }
 
+    /*
+    * Update the problem description to reflect a new state
+    * (Prevents race conditions)
+    */
     __device__ void updateHeader(uint32_t* solutionHeader) {
         
         //TODO: This should use volatiles not atomicAdd to ignore cached result (Issue on Turing Codegen)
@@ -55,7 +70,9 @@ namespace HnGPU {
         solutionHeader[HNFUNC_COUNT] = atomicAdd(&solutionHeader[HNFUNC_NEWCOUNT], 0);
     }
 
-
+    /*
+    * Initialise the FFS 
+    */
     __global__ void hnInit(CCSRSegment* codomainEdges, HnFunction* functions, 
                     uint32_t* bBfrFunctionDegrees,
                     uint32_t* solutionHeader,
@@ -91,6 +108,9 @@ namespace HnGPU {
         }
     }
 
+    /*
+    * Populate the lowest depth of the FFS
+    */
     __global__ void hnGen(CCSRSegment* codomainEdges, HnFunction* functions, HnFunction* bBfrFunctions,
                     uint32_t* functionDegrees, uint32_t* functAllocs, 
                     uint32_t* solutionHeader,
@@ -164,7 +184,9 @@ namespace HnGPU {
 
     }
 
-
+    /*
+    * Check for bad mappings in the lowest depth of the FFS
+    */
     __global__ void hnCheck(CCSRSegment* codomainEdges, HnFunction* functions, HnFunction* bBfrFunctions,
                     uint32_t* bBfrFunctionDegrees,
                     uint32_t* solutionHeader,
@@ -184,17 +206,20 @@ namespace HnGPU {
 
             int32_t newVertex = fn->mapping;
 
-
+#ifdef GPUDEBUG
             if (fn->mapping == -1) {
                 debug_printf("\nBad Thread Found! %u", ix);
                 __trap();
             }
-
+#endif
 
             if (nextFirstOccurence == 1) {
                 bBfrFunctionDegrees[ix] = codomainEdges[fn->mapping];
             }
 
+
+            //Observes the size for the lookahead mechanism (for the next generation)
+            //and checks whether the new mapping preserves injectiveness
             for (int32_t i = 0; i <= depth; i++) {
 
                 fn = &functions[fn->previous];
@@ -210,8 +235,9 @@ namespace HnGPU {
                 }
             }
 
-            fn = cFn;
 
+            //Test whether the requirements are observed in the mapping's CCSR row
+            fn = cFn;
             uint32_t foundLocs = numOfReqs;
 
             for (uint32_t i = 0; i < numOfReqs * 2; i += 2) {
@@ -222,7 +248,6 @@ namespace HnGPU {
                     fn = &functions[fn->previous];
                 }
 
-      
                 foundLocs -= reqExists(&codomainEdges[fn->mapping + 1], reqRel, newVertex, codomainEdges[fn->mapping]);
             }
 
@@ -236,6 +261,11 @@ namespace HnGPU {
         }
     }
 
+    /*
+    * Special function used for batching
+    * 
+    * Subtracts a value from all values in a buffer
+    */
     __global__ void hnRem(uint32_t* bfr, uint32_t val, uint32_t count) {
         uint32_t ix = blockIdx.x * blockDim.x + threadIdx.x;
         if (ix < count) {
@@ -243,7 +273,11 @@ namespace HnGPU {
         }
     }
 
-   
+    /*
+    * Special function used for batching
+    * 
+    * Recomputes the Degrees (for the lookahead mechanism) of partial matches
+    */
     __global__ void hnDeg(HnFunction* functions, CCSRSegment* codomainEdges, 
         uint32_t* functionDegrees, uint32_t* solutionHeader,
         uint32_t depth, 
@@ -268,6 +302,10 @@ namespace HnGPU {
         }
     }
 
+    /*
+    * Removes all flagged mappings from the FFS 
+    * (by moving the ones which are valid, to be written serially)
+    */
     __global__ void hnRemove(HnFunction* functions, HnFunction* bBfrFunctions,
                     uint32_t* functionDegrees, uint32_t* bBfrFunctionDegrees,
                     uint32_t* solutionHeader,
@@ -295,6 +333,9 @@ namespace HnGPU {
 
     }
 
+    /*
+    * Calls CUB implementation of Device-Wide Exclusive Scan
+    */
     __device__ cudaError_t hnScan(uint32_t* scanBfr, uint32_t* scanBfrTemp, size_t tempBfrSize, 
                 uint32_t* functCounts, uint32_t* solutionHeader, size_t SCAN_LIMIT) {
 
@@ -307,6 +348,10 @@ namespace HnGPU {
         return cudaDeviceSynchronize();
     }
 
+    /*
+    * Unused
+    * Calls CUB implementation of Device-Wide Radix Sort
+    */
     template <class K, class V>
     __device__ cudaError_t hnSort(uint32_t* sortBfrTemp, size_t tempBfrSize, K* keys, K* keysSort, V* values, V* valuesSort,
         uint32_t* solutionHeader, size_t SCAN_LIMIT) {
@@ -320,13 +365,9 @@ namespace HnGPU {
         return cudaDeviceSynchronize();
     }
 
-    __device__ void dumpSoln(HnFunction* functions, uint32_t count) {
-        printf("\nDumping Buffer");
-        for (uint32_t i = 0; i < count; i++) {
-            printf("{%i, %i}", functions[i].mapping, functions[i].previous);
-        }
-    }
-
+    /*
+    * The main loop of the task Kernel
+    */
     __device__ __forceinline__ bool hnLoop(CCSRSegment* codomainEdges, HnFunction* functions, HnFunction* bBfrFunctions,
         uint32_t* functionDegrees, uint32_t* bBfrFunctionDegrees,
         uint32_t* solutionHeader,
@@ -341,9 +382,9 @@ namespace HnGPU {
         uint32_t reqIndex = ((depth + 1) * 3);
         uint32_t nextReqIndex = reqIndex + (depth != depthTarget) * 3;
 
-        //HnGen
-
         uint32_t blockCount = getBlockCount(solutionHeader[HNFUNC_COUNT], HBLOCKSIZE);
+
+        //HnGen - Generate candidates
 
         hnGen << < blockCount, HBLOCKSIZE >> > (codomainEdges, functions, bBfrFunctions, functionDegrees, scanBfr, solutionHeader, functCounts,
             maxValency, requirementHeader[HNREQS_H_FIRSTQVERTEX + reqIndex], batchOffset);
@@ -356,16 +397,13 @@ namespace HnGPU {
 
         blockCount = getBlockCount(solutionHeader[HNFUNC_COUNT], HBLOCKSIZE);
 
-        //HnCheck
+        //HnCheck - Check candidates
 
         hnCheck << < blockCount, HBLOCKSIZE >> > (codomainEdges, functions, bBfrFunctions, bBfrFunctionDegrees, solutionHeader, functCounts, scanBfr,
             requirements, requirementHeader[HNREQS_H_NUM + reqIndex], requirementHeader[HNREQS_H_INDEX + reqIndex], depth,
             requirementHeader[HNREQS_H_FIRSTQVERTEX + nextReqIndex]);
 
         if (cudaSuccess != cudaDeviceSynchronize()) return true;
-
-
-        //HnRemove
 
         debug_printf("\nHnCheck -> %u", solutionHeader[HNFUNC_COUNT]);
 
@@ -381,6 +419,8 @@ namespace HnGPU {
             }
         }
 
+        //HnRemove - Remove flagged candidates
+
         hnRemove << < blockCount, HBLOCKSIZE >> > (functions, bBfrFunctions, functionDegrees, bBfrFunctionDegrees, solutionHeader, scanBfr, batchOffset);
 
         if (cudaSuccess != cudaDeviceSynchronize()) return true;
@@ -388,7 +428,6 @@ namespace HnGPU {
         updateHeader(solutionHeader);
 
         debug_printf("\nHnRemove -> %u", solutionHeader[HNFUNC_COUNT]);
-
         pcsv_printf("HnStep: %u (%u),", solutionHeader[HNFUNC_COUNT], depth);
 
         //TODO: Implement at some point, it doesn't work! Should help accelerate certain workloads
@@ -405,6 +444,14 @@ namespace HnGPU {
 
 #define BATCHINGSPACE 1024 * 16
 
+    /*
+    * The Job launched for the task kernel --
+    * 
+    * - Initialises solution
+    * - Then chooses between:
+    *       - Computing main loop 
+    *       - Using batching (for very large problems)
+    */
     __global__ void hnSolve(CCSRSegment* codomainEdges, HnFunction* functions, HnFunction* bBfrFunctions,
                     uint32_t* functionDegrees, uint32_t* bBfrFunctionDegrees,
                     uint32_t* solutionHeader,
@@ -422,7 +469,9 @@ namespace HnGPU {
 
         solutionHeader[HNFUNC_OFFSET] = 0;
 
-//HnInit
+        //Initialise solution
+        //As CCSR rows decrease across the CCSR, launch a workload for each length of row 
+        //(highest -> lowest)
         for (int spacing = staggerLen+1; spacing > 1; spacing--) {
 
             stagger = staggers[spacing -2];
@@ -465,6 +514,7 @@ namespace HnGPU {
 
         solutionHeader[HNFUNC_COUNT] = solutionHeader[HNFUNC_NEWCOUNT];
 
+        //Repeat the following for each remaining requirement
         for (int depth = 0; depth < depthTarget; depth++) {
 
             uint32_t funcCount = solutionHeader[HNFUNC_COUNT];
@@ -473,6 +523,9 @@ namespace HnGPU {
             uint32_t predCeil = predFuncCount + funcCount + funcOffset;
             debug_printf("\nHnPred -> %u", predFuncCount);
             pcsv_printf("HnPred: %u (%u),", predFuncCount, depth);
+
+            //Check to see whether we are going to overflow
+            //If we will, lets try batching to solve this
             if (predCeil >= SOLN_LIMIT) {
                 debug_printf("\nOVERFLOW DETECTED\nDepth: %i, Offset: %u, Count: %u Target: %u", depth, funcOffset, funcCount, predFuncCount);
                 debug_printf("\nFree: %u, Max: %u, Required: %u", SOLN_LIMIT - (funcCount + funcOffset), SOLN_LIMIT, predCeil);
@@ -487,6 +540,8 @@ namespace HnGPU {
                     uint32_t pSize;
 
                     for (uint32_t pF = 0; pF < funcCount; pF += pSize) {
+
+                        //Look for a small enough (but large) batch we could fit
                         pSize = batchSize;
                         if (pSize > funcCount - pF) {
                             pSize = funcCount - pF;
@@ -511,12 +566,14 @@ namespace HnGPU {
                             }
                         }
 
-
                         uint32_t expectedDif = scanBfr[pF + pSize - 1] - scanBfr[pF];
 
                         solutionHeader[HNFUNC_COUNT] = pSize;
 
                         cudaMemcpyAsync(scanBfrBack, scanBfr + pF, pSize * sizeof(uint32_t), cudaMemcpyDeviceToDevice);
+
+                        //As only batches of the problem can be computed at once we recalculate
+                        //the current functions degree each time (as we cannot store all of them)
                         if (filteredCandidates) {
                             blockCount = getBlockCount(solutionHeader[HNFUNC_COUNT], HBLOCKSIZE);
                             hnRem << <blockCount, HBLOCKSIZE >> > (scanBfrBack, filteredCandidates, solutionHeader[HNFUNC_COUNT]);
@@ -582,6 +639,8 @@ namespace HnGPU {
                 return;
 #endif
             } else {
+
+                //Most Common case, just enter the loop and launch the work
                 if (hnLoop(codomainEdges, functions, bBfrFunctions,
                     functionDegrees, bBfrFunctionDegrees,
                     solutionHeader,
@@ -593,13 +652,14 @@ namespace HnGPU {
                     depth,
                     SOLN_LIMIT, SCAN_LIMIT)) {
                         solutionHeader[HNFUNC_COUNT] = DEBUGCOUNT;
+
+                        //Generally these debug messages are never seen, as errors cause a early grid exit
+                        //TODO: Possibly remove them?
                         debug_printf("General loop failure %i", depth);
                         csv_printf("Loop failure %i,", depth);
                         return;
                 }
             }
-
-            
 
             if (volatile int count = solutionHeader[HNFUNC_COUNT] == 0) {
                 return;
@@ -608,6 +668,9 @@ namespace HnGPU {
 
     }
 
+    /*
+    * Converts the FFS into a table form (respecting the original input data)
+    */
     __global__ void hnWrite(CCSRSegment* codomainEdges, HnFunction* functions, uint32_t* functionInfo,
                         uint32_t* inverseDataVerticeLocs, int32_t* queryMappingData,
                         CCSR::StaggerInfo* staggersInfoGPU,
@@ -616,31 +679,34 @@ namespace HnGPU {
         uint32_t ix = blockIdx.x * blockDim.x + threadIdx.x;
         uint32_t* fInfo = &functionInfo[ix * querySize];
 
-
         if (ix < functionCount) {
             HnFunction function = functions[ix + functionOffset];
             for (uint32_t i = 0; i < querySize; i++) {
+
+                //Convert mapping to be in terms of the original input data (instead of CCSR location)
                 uint32_t mapping = function.mapping;
-
                 uint32_t degree = codomainEdges[mapping];
-
                 CCSR::StaggerInfo staggerInfoGPU = staggersInfoGPU[degree - 1];
-
                 uint32_t normalisedIndex = staggerInfoGPU.normOffset + (mapping - staggerInfoGPU.offset) / (degree + 1);
-
                 fInfo[(uint32_t)queryMappingData[i]] = inverseDataVerticeLocs[normalisedIndex];
 
+                //Step up the FFS
                 function = functions[function.previous];
             }
 
         }
 
     }
-
 }
 
 namespace HnSetup {
 
+
+    /*
+    * Solves a subgraph matching problem between two CCSR graphs
+    * 
+    * Requires HnSetup::preinit called before (or cuda buffers won't be allocated)
+    */
     __host__ std::vector<HnSolution>* solve(const CCSR::CCSRGraph& ccsrQuery, const CCSR::CCSRGraph& ccsrData,
         const CCSR::CCSRStagger& queryStagger, const CCSR::CCSRStagger& dataStagger) {
 
@@ -669,10 +735,17 @@ namespace HnSetup {
         info_printf("\nGPU Time: %fs\n", elapsed_seconds.count());
         csv_printf("%fs,", elapsed_seconds.count());
 
-
         return NULL;
     }
 
+    /*
+    * Preprocess
+    * 
+    * - Sets up requirements for the query graph -- 
+    *   - Chooses a matching order
+    *   - Sets up the requirements buffer data
+    *   - Max degree in the query graph
+    */
     __host__ uint32_t preProcessQuery(CCSR::CCSRGraph query, uint32_t** requirements, uint32_t** requirementHeader, int32_t** mappingData) {
 
         uint32_t maxValency = CCSR::getMaxValency(query);
@@ -696,7 +769,6 @@ namespace HnSetup {
         (*mappingData)[loc] = 0;
 
         for (int depth = 0; depth < query.count; depth++) {
-
             CCSR::genereateCCSRRequirements(query, *requirements, *requirementHeader, maxValency, depth, *mappingData);
         }
 
@@ -734,6 +806,7 @@ namespace HnSetup {
 
         for (uint32_t i = 0; i < maxValency * query.count; i++) {
             if ((*requirements)[i * 2] > query.count) {
+                info_printf("\nPrecompiler Failure: Query Gen,", 0);
                 pcsv_printf("Precompiler Failure: Query Gen,", 0);
                 exit(1);
             }
@@ -741,6 +814,13 @@ namespace HnSetup {
 
         return maxValency;
     }
+
+    /*
+    * General Allocation Helper Function
+    * 
+    * Uses CudaMalloc not AsyncCudaMalloc currently as benchmarks were done on Cuda 11.2 
+    * (Could be changed to cudaMallocAsync for faster results).
+    */
 
     template<class T>
     static __inline__ __host__ cudaError_t s_cudaMallocAsync(T** ptr, size_t size, cudaStream_t stream, size_t* total) {
@@ -760,6 +840,10 @@ namespace HnSetup {
 
     }
 
+    /*
+    * Pre allocates all main GPU buffers (FFS storage and Exclusive scan results)
+    */
+
     __host__ void preinit(size_t MEM_LIMIT, size_t SOLN_LIMIT, size_t SCAN_LIMIT) {
         auto start = std::chrono::steady_clock::now();
         s_cudaMallocAsync(&frontBfr, sizeof(HnFunction) * SOLN_LIMIT, 0, &totalAlloc);
@@ -777,7 +861,9 @@ namespace HnSetup {
         csv_printf("%fs,", elapsed_seconds.count());
     }
 
-
+    /*
+    * Launches all GPU work and allocates memory for CCSR data (device-side)
+    */
     __host__ void gpuLaunch(const CCSR::CCSRGraph& query, const CCSR::CCSRGraph& data, const CCSR::CCSRStagger& dataStagger,
         uint32_t* requirements, uint32_t* requirementHeader,
         uint32_t maxValencyQuery, uint32_t maxValencyData, int32_t* mappingData,
@@ -860,6 +946,7 @@ namespace HnSetup {
 
         end = std::chrono::steady_clock::now();
         std::chrono::duration<double> elapsed_seconds3 = end - start;
+
         info_printf("\nKernel Time: %fs\n", elapsed_seconds3.count());
         csv_printf("%fs,", elapsed_seconds3.count());
 
@@ -935,6 +1022,7 @@ namespace HnSetup {
         int32_t blockCount = HnGPU::getBlockCount((*solutionHeaderCPU)[HNFUNC_COUNT], HBLOCKSIZE);
 
         cudaStatus = cudaDeviceSynchronize();
+        if (cudaSuccess != cudaStatus) cudaExit(cudaStatus);
 
         start = std::chrono::steady_clock::now();
 
@@ -949,6 +1037,7 @@ namespace HnSetup {
 
         end = std::chrono::steady_clock::now();
         std::chrono::duration<double> elapsed_seconds5 = end - start;
+
         info_printf("\nSolution Creation End Time: %fs\n", elapsed_seconds5.count());
         csv_printf("%fs,", elapsed_seconds5.count());
 
@@ -973,6 +1062,10 @@ namespace HnSetup {
         //functionsToFilePretty(functionInfo, query.count, (*solutionHeaderCPU)[HNFUNC_COUNT]);
     }
 
+
+    /*
+    * Pretty Print the Final Result
+    */
     __host__ void printFunctions(uint32_t* functionInfo, uint32_t width, uint32_t count) {
         printf("\nFunctions");
 
