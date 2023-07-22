@@ -30,6 +30,12 @@ inline bool operator<(const OrderPair& pair0, const OrderPair& pair1) {
 	return pair0.size > pair1.size;
 }
 
+/*
+* TODO: Rework this, it could be better!
+* 
+* Variable Length 2D Intermediate structure to hold CCSR data as its generated
+* It is made of 
+*/
 
 class Dynamic2D {
 
@@ -47,6 +53,9 @@ private:
 
 	uint32_t bAllocated;
 
+	/*
+	* Reused Init func (in constructors below)
+	*/
 	void construct(uint32_t _rows, uint32_t _width, uint32_t _reserve) {
 		rows = _rows;
 		width = _width;
@@ -58,9 +67,12 @@ private:
 
 public:
 
+	/*
+	* Get an element
+	*/
 	uint32_t get(uint32_t* alloc, int i) const {
 		if(width <= i){
-			uint32_t offset = *(alloc + width + 1);
+			uint32_t offset = alloc[width + 1];
 			if (offset) {
 				return get(&backRows[offset], i - width);
 			} 
@@ -69,6 +81,9 @@ public:
 		return alloc[i+1];
 	}
 
+	/*
+	* Get a row reference from the back rows
+	*/
 	uint32_t* getBottomRow(uint32_t* alloc) {
 		if (alloc[0] >= width) {
 			uint32_t offset = *(alloc + width + 1);
@@ -85,6 +100,9 @@ public:
 		return alloc;
 	}
 
+	/*
+	* Add an element
+	*/
 	void put(uint32_t* alloc, uint32_t value) {
 		uint32_t* row = getBottomRow(alloc);
 		row[row[0] + 1] = value;
@@ -94,23 +112,32 @@ public:
 		}
 	}
 	
-struct DynamicRow{
-	uint32_t* allocation;
-	uint32_t width, size;
-	Dynamic2D* parent;
+	/*
+	*	The variable size rows in the Dynamic2D
+	*	Accessed via the [] operator on the Dynamic2D
+	*/
 
-	uint32_t operator [](int i) const {
-		if (width <= i) {
-			return parent->get(allocation, i);
+	struct DynamicRow{
+		uint32_t* allocation;
+		uint32_t width, size;
+		Dynamic2D* parent;
+
+		uint32_t operator [](int i) const {
+			if (width <= i) {
+				return parent->get(allocation, i);
+			}
+			return allocation[i+1];
 		}
-		return allocation[i+1];
-	}
 
-	void operator << (uint32_t value) {
-		size++;
-		parent->put(allocation, value);
-	}
-};
+		void operator << (uint32_t value) {
+			size++;
+			parent->put(allocation, value);
+		}
+	};
+
+	/*
+	*	Dynamic2D Constructors
+	*/
 
 	Dynamic2D(uint32_t _rows, uint32_t _width, uint32_t reserved) {
 		construct(_rows, _width, reserved);
@@ -124,6 +151,10 @@ struct DynamicRow{
 		free(frontRows);
 		free(backRows);
 	}
+
+	/*
+	*	How rows are accessed in the Dynamic2D
+	*/
 
 	DynamicRow operator [](int i) const{
 		uint32_t* row = &frontRows[i * (width+2)];
@@ -140,39 +171,24 @@ struct DynamicRow{
 		}
 	}
 
-//#define DEBUGDR
-#ifdef DEBUGDR
-	void dumpBfr() {
-		printf("\nFront Buffer:");
-		for (uint32_t i = 0; i < (width+2) * rows; i++) {
-			if (!(i % (width + 2))) {
-				printf("\n");
-			}
-			printf("%lu, ", frontRows[i]);
-		}
-
-		printf("\nBack Buffer:");
-		for (uint32_t i = 0; i < reserved; i++) {
-			if (!(i % (width + 2))) {
-				printf("\n");
-			}
-			printf("%lu, ", backRows[i]);
-		}
-	}
-#endif
 };
 
+/*
+* The Parsing structure for parsing a CCSR
+*/
 
+//Parsing Modes and States
 enum ParseMode { header_p, vertex_p, edge_p };
 enum ParseState { complete_p, fail_p, edges_found_p, end_p };
 
-#define PARSE_PROTECT //Who knows what people will throw at it.
+//#define PARSE_PROTECT //Who knows what people will throw at it.
 
 void clearValues(uint32_t* values, size_t size) {
 	memset(values, 0, size*sizeof(uint32_t));
 }
 
-inline ParseState parseValues(char** str, char* end, uint32_t* values, ParseMode pm){
+//Parse the values of the file
+inline ParseState parseValues(char** str, char* end, uint32_t* values, const ParseMode pm){
 
 	uint32_t scanWidth;
 	char ch = **str;
@@ -183,6 +199,8 @@ inline ParseState parseValues(char** str, char* end, uint32_t* values, ParseMode
 		}
 		return end_p;
 	}
+
+	//"pm" is constant, so this should get optimised down!
 
 	switch(pm){
 		case header_p:
@@ -247,7 +265,7 @@ inline ParseState parseValues(char** str, char* end, uint32_t* values, ParseMode
 	return complete_p;
 }
 
-//30264781
+//When things break, it's sometimes nicer to pretty print
 void dumpBfr(uint32_t* bfr, uint32_t size) {
 	printf("\Buffer Dump:");
 	for (uint32_t i = 0; i < size; i++) {
@@ -258,8 +276,11 @@ void dumpBfr(uint32_t* bfr, uint32_t size) {
 	}
 }
 
+/*
+* Parse a plain text graph file
+*/
 
-CCSR::CCSRGraph txtGSI(std::string loc, bool directed, CCSR::CCSRStagger* stagger) {
+CCSR::CCSRGraph fileParse(std::string loc, bool directed, CCSR::CCSRStagger* stagger) {
 
 	auto start = std::chrono::steady_clock::now();
 	auto fstart = std::chrono::steady_clock::now();
@@ -450,8 +471,6 @@ CCSR::CCSRGraph txtGSI(std::string loc, bool directed, CCSR::CCSRStagger* stagge
 		if (len = ccsrData[i]) {
 			CCSRSegment* row = &ccsrData[i] + 1;
 
-			//TODO: Safety we can enable but is slower!
-			//CCSR::insNodeSort(row, row + len, temp);
 			if (!std::is_sorted(row, row + len, CCSR::nodeCompare)) {
 				std::sort(row, row + len, CCSR::nodeCompare);
 			}

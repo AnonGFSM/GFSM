@@ -6,26 +6,28 @@
 
 namespace CCSR {
 
+	/*
+	* Node Compare (is_sorted requires an non-inlined version)
+	* Comparison Function of two CCSR elements
+	*/
 	bool nodeCompare(CCSRSegment seg0, CCSRSegment seg1) {
 		constexpr auto mask = CCSRIndex(CCSRVertSize);
 		return (seg0 & mask) < (seg1 & mask);
 	}
 
+	/*
+	* Inline Node Compare
+	* Comparison Function of two CCSR elements
+	*/
 	inline bool inNodeCompare(CCSRSegment seg0, CCSRSegment seg1) {
 		constexpr auto mask = CCSRIndex(CCSRVertSize);
 		return (seg0 & mask) < (seg1 & mask);
 	}
 
-	//STL Variance Means I've Reimplemented this!!
-	inline CCSRSegment* nodeUpperBound(CCSRSegment* begin, CCSRSegment* end, CCSRSegment value) {
-		for (auto it = begin; it != end; it++) {
-			if (inNodeCompare(value, *it)) {
-				return it;
-			}
-		}
-		return end;
-	}
-
+	/*
+	* Rotate Nodes
+	* Flips a region of data
+	*/
 	inline void rotateNodes(CCSRSegment* begin, CCSRSegment* n_begin, CCSRSegment* end, CCSRSegment* temp) {
 		int dist = n_begin - begin;
 		int len = end - begin;
@@ -37,7 +39,9 @@ namespace CCSR {
 		}
 	}
 
-
+	/*
+	* Pretty Prints CCSR elements
+	*/
 	void printSegs(CCSRSegment* begin, CCSRSegment* end) {
 		printf("\nPrinting Seg Row: ");
 		for (auto it = begin; it < end; it++) {
@@ -45,6 +49,10 @@ namespace CCSR {
 		}
 	}
 
+	/*
+	* Is ordered?
+	* Checks whether a CCSR region is ordered
+	*/
 	inline bool ordered(CCSRSegment* begin, CCSRSegment* end) {
 		for (auto it = begin+1; it != end; it++)
 		{
@@ -55,27 +63,17 @@ namespace CCSR {
 		return true;
 	}
 
-	void insNodeSort(CCSRSegment* begin, CCSRSegment* end, CCSRSegment* temp)
-	{
-		if (ordered(begin, end)) {
-			return;
-		}
-
-		for (auto it = begin; it != end; it++)
-		{
-			auto const insertion_point = nodeUpperBound(begin, it, *it);
-
-			// Shifting the unsorted part
-			rotateNodes(insertion_point, it, it + 1, temp);
-		}
-	}
-	bool intDesc(int i, int i2) {
-		return i > i2;
-	}
-
+	/*
+	* Get Index
+	* Find - Distance to beginning
+	*/
 	inline uint32_t getIndex(uint32_t* arr, uint32_t len, uint32_t value) {
 		return std::find(arr, arr+len, value) - arr;
 	}
+
+	/*
+	* Sorting Pair before converted to CCSR
+	*/
 
 	struct ReqRelPair {
 		uint32_t req, rel;
@@ -85,10 +83,17 @@ namespace CCSR {
 		return (l.req) < (r.req);
 	}
 
+
 	//Formatting of MappingData
 	//-1 means Vertex unseen
 	// 0 means Vertex seen   and not mapped
 	//>0 means Vertex seen   and mapped
+
+	/*
+	* Convert Query Graph into requirements (to solve subgraph isomorphism over)
+	* Note: GFSM is unaware of the actual query at runtime (or even its nodes), and only 
+	*		cares to enforce these requirements for each new mapping
+	*/
 
 	void genereateCCSRRequirements(CCSRGraph graph, uint32_t* requirements, uint32_t* requirementHeader,
 		uint32_t maxValency, uint32_t depth,

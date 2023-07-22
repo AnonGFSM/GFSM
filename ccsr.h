@@ -13,7 +13,6 @@
 
 namespace CCSR {
 	bool nodeCompare(CCSRSegment seg0, CCSRSegment seg1);
-	void insNodeSort(CCSRSegment* begin, CCSRSegment* end, CCSRSegment* temp);
 	void printSegs(CCSRSegment* begin, CCSRSegment* end);
 
 	__global__ struct __align__(8) CSRSegment {
