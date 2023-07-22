@@ -382,9 +382,9 @@ namespace HnGPU {
         uint32_t reqIndex = ((depth + 1) * 3);
         uint32_t nextReqIndex = reqIndex + (depth != depthTarget) * 3;
 
-        //HnGen - Generate candidates
-
         uint32_t blockCount = getBlockCount(solutionHeader[HNFUNC_COUNT], HBLOCKSIZE);
+
+        //HnGen - Generate candidates
 
         hnGen << < blockCount, HBLOCKSIZE >> > (codomainEdges, functions, bBfrFunctions, functionDegrees, scanBfr, solutionHeader, functCounts,
             maxValency, requirementHeader[HNREQS_H_FIRSTQVERTEX + reqIndex], batchOffset);
@@ -405,9 +405,6 @@ namespace HnGPU {
 
         if (cudaSuccess != cudaDeviceSynchronize()) return true;
 
-
-        //HnRemove - Remove flagged candidates
-
         debug_printf("\nHnCheck -> %u", solutionHeader[HNFUNC_COUNT]);
 
         if (cudaSuccess != hnScan(scanBfr, scanBfrTemp, SCAN_LIMIT * sizeof(int), functCounts, solutionHeader, SCAN_LIMIT)) return true;
@@ -421,6 +418,8 @@ namespace HnGPU {
                 return true;
             }
         }
+
+        //HnRemove - Remove flagged candidates
 
         hnRemove << < blockCount, HBLOCKSIZE >> > (functions, bBfrFunctions, functionDegrees, bBfrFunctionDegrees, solutionHeader, scanBfr, batchOffset);
 
