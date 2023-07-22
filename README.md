@@ -2,7 +2,7 @@
 
 This is the repository for GPU Forest-Based Subgraph Matching.
 
-To run an experiment use: `./GFSM "Query Graph Location" "Data Graph Location`
+To run an experiment use: `./GFSM "Query Graph Location" "Data Graph Location"`
 
 Note that the graph format should look like:
 ```
