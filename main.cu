@@ -21,10 +21,10 @@ void argTest(std::string query, std::string data) {
 
 #ifdef NAMEDATA
     std::cout << "\n\n----------------------------------------------------------------------\n\n";
-    std::cout << "       " << "GSI: " << query << " --> " << data;
+    std::cout << "       " << "GFSM: " << query << " --> " << data;
     std::cout << "\n\n----------------------------------------------------------------------\n\n";
 #endif
-    //This is bad!!
+
     csv_printf("\n%s,%s,", query.substr(query.find_last_of("/") + 1).c_str(), data.substr(data.find_last_of("/")+1).c_str());
 
     HnSetup::preinit(MEMLIMIT, MAXSOLNSIZE, MAXSCANSIZE);
