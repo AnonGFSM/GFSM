@@ -24,7 +24,7 @@ Where:
 
 - `e 0 1 1` signifies an edge exists between vertex 0 and 1 with label `1`
 
-Note that the Environment.h file contain important defines (mattering on GPU target/experiments):
+Note that the Environment.h file contains important defines (mattering on GPU target/experiments):
 
 &nbsp;&nbsp;&nbsp;**CCSRRelSize** - Max size of a CCSR relation, the larger this is, the smaller max size of a CCSR
 
