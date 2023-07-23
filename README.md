@@ -14,6 +14,8 @@ e 0 1 1
 e 1 0 1
 t # -1
 ```
+Where: 
+
 - `t # 0` and `t # -1` are the start and end of a file
   
 - The first row of numbers (the header) are: **Vertex Count**, **Edge Count**, **Vertex Label Max**, **Edge Label Max**
@@ -22,13 +24,13 @@ t # -1
 
 - `e 0 1 1` signifies an edge exists between vertex 0 and 1 with label `1`
 
-Note that the Environment.h file contain important defines (mattering on GPU target/experiments):
+Note that the Environment.h file contains important defines (mattering on GPU target/experiments):
 
 &nbsp;&nbsp;&nbsp;**CCSRRelSize** - Max size of a CCSR relation, the larger this is, the smaller max size of a CCSR
 
 &nbsp;&nbsp;&nbsp;**MAXSOLNSIZE** - Max size of a solution (in mappings/FFS M-Nodes)
 
-&nbsp;&nbsp;&nbsp;**MAXSCANSIZE** - Max size of a exclusive scan buffer/result
+&nbsp;&nbsp;&nbsp;**MAXSCANSIZE** - Max size of an exclusive scan buffer/result
 
 &nbsp;&nbsp;&nbsp;**MEMLIMIT** - Initial max amount of memory that can be used
 
