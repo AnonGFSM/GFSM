@@ -14,6 +14,8 @@ e 0 1 1
 e 1 0 1
 t # -1
 ```
+Where: 
+
 - `t # 0` and `t # -1` are the start and end of a file
   
 - The first row of numbers (the header) are: **Vertex Count**, **Edge Count**, **Vertex Label Max**, **Edge Label Max**
