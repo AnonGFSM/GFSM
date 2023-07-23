@@ -30,7 +30,7 @@ Note that the Environment.h file contains important defines (mattering on GPU ta
 
 &nbsp;&nbsp;&nbsp;**MAXSOLNSIZE** - Max size of a solution (in mappings/FFS M-Nodes)
 
-&nbsp;&nbsp;&nbsp;**MAXSCANSIZE** - Max size of a exclusive scan buffer/result
+&nbsp;&nbsp;&nbsp;**MAXSCANSIZE** - Max size of an exclusive scan buffer/result
 
 &nbsp;&nbsp;&nbsp;**MEMLIMIT** - Initial max amount of memory that can be used
 
